@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let projectUrl = "http://localhost:8888/wp-json/wp/v2/project";
+    let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/v2/project";
     fetch(projectUrl)
       .then(response => response.json())
       .then(response => {
@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     let project = this.state.project.map((oneProject, index) => {
-      return <li key={index}><img src={oneProject.acf.image.url} /></li>
+      return <li key={index}><img src={oneProject.acf.custom_image.url} /></li>
     })
 
     return (
