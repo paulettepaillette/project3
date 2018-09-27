@@ -14,20 +14,8 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/v2/project";
-    fetch(projectUrl)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({ project: response })
-      })
-      .catch(err => console.log(err));
-  }
 
   render() {
-    let project = this.state.project.map((oneProject, index) => {
-      return <li key={index}><img src={oneProject.acf.custom_image.url} /></li>
-    })
 
     return (
       <main>
@@ -35,7 +23,6 @@ class App extends Component {
 
         <Switch>
           <Route path="/products-details/:productId" component={Product} />
-          <Route component={NotFound} />
         </Switch>
 
       </main>
