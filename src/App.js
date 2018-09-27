@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
+import api from "./api.js";
+
 import './App.css';
+import Product from './components/Product';
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +30,15 @@ class App extends Component {
     })
 
     return (
-      <div className="App">
+      <main>
         {project}
-      </div>
+
+        <Switch>
+          <Route path="/products-details/:productId" component={Product} />
+          <Route component={NotFound} />
+        </Switch>
+
+      </main>
     );
   }
 }
