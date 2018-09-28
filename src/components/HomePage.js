@@ -86,17 +86,35 @@ class HomePage extends Component {
                                     </div>
                                 </div>
                                 <div className="news-section-down">
-                                    <div className="element-container">
-                                        <div>
-                                            <img src={oneEl.acf.news_section_image_1.url} alt=""/>
-                                            <h2> {oneEl.acf.news_section_title_2} </h2>
-                                            <p> {oneEl.acf.news_section_text_2} </p>
-                                        </div>
-                                        <div>
-                                            <img src={oneEl.acf.news_section_image_2.url} alt=""/>
+                                    <div className="container">
+                                        <div className="news-section-down-wrapper">
+                                            <div>
+                                                <img src={oneEl.acf.news_section_image_1.url} alt=""/>
+                                                <h2> {oneEl.acf.news_section_title_2} </h2>
+                                                <p> {oneEl.acf.news_section_text_2} </p>
+                                            </div>
+                                            <div>
+                                                <img src={oneEl.acf.news_section_image_2.url} alt=""/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </section>
+                            <section>
+                                <div className="tech-section">
+                                    <div className= "tech-section-text">
+                                        <h2>{oneEl.acf.tech_section_title}</h2>
+                                        <p>{oneEl.acf.tech_section_text}</p>
+                                        <a to="/about" >Learn more</a>
+                                    </div>
+                                    <img src = {oneEl.acf.tech_section_image.url} />
+                                </div>
+                            </section>
+                            <section className="brand-section container">
+                                <img src={oneEl.acf.brand_section_image_1.url} alt=""/>
+                                <img src={oneEl.acf.brand_section_image_2.url} alt=""/>
+                                <img src={oneEl.acf.brand_section_image_3.url} alt=""/>
+                                <img src={oneEl.acf.brand_section_image_4.url} alt=""/>
                             </section>
                         </main>
                     )

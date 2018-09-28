@@ -16,14 +16,14 @@
   padding: 35px 65px;
 }
 
-a {
+.btn {
   text-decoration: none;
   border: 1px solid black; 
   padding: 10px 10px;
   color: #000;
 }
 
-a:hover {
+.btn:hover {
   text-decoration: none;
   background-color: #000;
   color: #fff;
@@ -62,7 +62,7 @@ footer p {
 .tech-section {
   display:flex;
   justify-content: space-between;
-  margin-top: 80px;
+  
 }
 
 .tech-section-text {
@@ -91,7 +91,6 @@ footer p {
 }
 
 
-<<<<<<< HEAD
 /* ------------------ Home Page ------------------- */
 
 
@@ -112,8 +111,8 @@ max-width: 1260px;
   justify-content: center;
 }
 
-.element-container{
-  margin-top: -5%;
+.news-section-down-wrapper{
+  margin-top: -8%;
   margin-bottom: 6%;
   display: flex;
   justify-content: space-between;
@@ -121,7 +120,15 @@ max-width: 1260px;
   
 }
 
-=======
+.brand-section{
+display: flex;
+justify-content: space-around;
+
+
+}
+
+
+
 /*------------------ Product Detailed Page ------------------*/
 
 .product-section {
@@ -157,5 +164,4 @@ max-width: 1260px;
 .details {
   max-width: 350px;
 }
->>>>>>> 11f430bf36eeafab6f68140692869560189a210d
 
