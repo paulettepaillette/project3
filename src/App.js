@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Product from './components/Product';
 import HomePage from './components/HomePage.js';
+import ProductList from './components/ProductList';
 
 class App extends Component {
 
@@ -20,7 +21,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/home" component={HomePage} />
-          <Route path="/products-details/:productId" component={Product} />
+          <Route exact path="/products" component={ProductList} />
+          <Route path="/products/:productId" component={Product} />
         </Switch>
 
       </main>

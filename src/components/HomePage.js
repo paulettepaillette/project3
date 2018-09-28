@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import api from "../api.js"
+import api from "../api.js";
 
 class HomePage extends Component {
     constructor(props){
@@ -8,7 +8,7 @@ class HomePage extends Component {
 
         this.state = {
             homeData: []
-        }
+        };
     }
 
     componentDidMount() {
