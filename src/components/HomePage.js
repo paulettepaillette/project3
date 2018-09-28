@@ -29,7 +29,7 @@ class HomePage extends Component {
         console.log(homeData)
         return (
             <div>
-                
+
                 {homeData.map(oneEl => {
                     return (
                         <main>
@@ -88,12 +88,12 @@ class HomePage extends Component {
                                 <div className="news-section-down">
                                     <div className="element-container">
                                         <div>
-                                            <img src={oneEl.acf.news_section_image_1.url} alt=""/>
+                                            <img src={oneEl.acf.news_section_image_1.url} alt="" />
                                             <h2> {oneEl.acf.news_section_title_2} </h2>
                                             <p> {oneEl.acf.news_section_text_2} </p>
                                         </div>
                                         <div>
-                                            <img src={oneEl.acf.news_section_image_2.url} alt=""/>
+                                            <img src={oneEl.acf.news_section_image_2.url} alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@ class HomePage extends Component {
                         </main>
                     )
                 })
-                
+
                 }
                 {/*  */}
 

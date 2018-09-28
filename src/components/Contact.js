@@ -37,6 +37,9 @@ class Contact extends Component {
         this.setState({ message: value });
     }
 
+    handleSubmit(event) {
+
+    }
 
 
 
