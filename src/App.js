@@ -15,12 +15,12 @@ class App extends Component {
       <main>
 
         <h1>Hello enfin</h1>
-        <a href="/home">Home trigger</a>
+        <a className="btn btn-primary" href="/home">Home trigger</a>
 
 
         <Switch>
           <Route exact path="/home" component={HomePage} />
-          <Route path="/products-details/:productId" component={Product} />
+          {/* <Route path="/products-details/:productId" component={Product} /> */}
 
         </Switch>
 
