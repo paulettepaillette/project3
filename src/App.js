@@ -18,7 +18,7 @@ class App extends Component {
       <main>
 
         <header>
-          <a href="/home"><h1>Glasses</h1></a>
+          <a href="/"><h1>Glasses</h1></a>
 
           <nav>
             <a href="#0">WOMEN</a>

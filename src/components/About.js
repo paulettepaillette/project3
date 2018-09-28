@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from "axios";
 
+
+import api from "../api"
 
 class About extends Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class About extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
-
+        // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
+            api.get("/about")
             .then(response => {
                 console.log("react response", response.data)
                 this.setState({ aboutData: response.data })
