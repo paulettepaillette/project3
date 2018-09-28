@@ -1,5 +1,6 @@
 import React from 'react';
 import api from "../api.js";
+import { Link } from "react-router-dom";
 
 class Product extends React.Component {
     constructor(props) {
@@ -7,7 +8,10 @@ class Product extends React.Component {
 
         this.state = {
             productData: {
-                acf: {}
+                acf: {
+                    product_image:{},
+                    tech_section_image:{}
+                }
             }
         };
     }
@@ -33,13 +37,36 @@ class Product extends React.Component {
 
         return (
             <section className="product-details">
-                <div className="headbanner">
-                    test
-                    {productData.acf.frame_text}
+                <div className="head-banner">
                 </div>
-                <div className="container">
+                <div className="product-section">
+                    <div className="product-main-info">
+                        <img src = {productData.acf.product_image.url} alt="Product image"/>
+                        <div>
+                            <h1>{productData.acf.product_title}</h1>
+                            <p>{productData.acf.price} €</p>
+                        </div>
+                    </div>
+                    
+                    <h3>DESCRIPTION</h3>
+                    <div className="product-other-info">
+                        <div className="details">
+                            <h4>FRAME</h4>
+                            <p>{productData.acf.frame_text}</p>
+                        </div>
+                            <div className="details">
+                            <h4>LENS</h4>
+                            <p>{productData.acf.lens_text}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="technology">
+                <div className="tech-section">
+                    <div className= "tech-section-text">
+                        <h2>{productData.acf.tech_section_title}</h2>
+                        <p>{productData.acf.tech_section_text}</p>
+                        <Link to="/about" className="btn" >Learn more</Link>
+                    </div>
+                    <img src = {productData.acf.tech_section_image.url} />
                 </div>
             </section>
         );

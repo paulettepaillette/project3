@@ -16,6 +16,19 @@
   padding: 35px 65px;
 }
 
+.btn {
+  text-decoration: none;
+  border: 1px solid black; 
+  padding: 10px 10px;
+  color: #000;
+}
+
+.btn:hover {
+  text-decoration: none;
+  background-color: #000;
+  color: #fff;
+}
+
 /*------------------ Header ------------------*/
 
 header {
@@ -45,6 +58,25 @@ footer p {
   padding-left: 30px;
 }
 
+/*------------------ Tech section ------------------*/
+.tech-section {
+  display:flex;
+  justify-content: space-between;
+}
+
+.tech-section-text {
+  max-width: 400px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.tech-section img {
+  width: 500px;
+}
 
 /*------------------ About Page ------------------*/
 
@@ -66,7 +98,6 @@ footer p {
   margin: 70px 0;
   text-align: center;
 }
-
 
 
 /*------------------ Contact Page ------------------*/
@@ -92,3 +123,71 @@ form {
   padding-top: 100px;
   padding-left: 60px;
 }
+
+
+/* ------------------ Home Page ------------------- */
+
+
+.news-section-top{
+height: 600px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.news-container{
+max-width: 1260px;
+}
+
+.news-section-down{
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+.element-container{
+  margin-top: -5%;
+  margin-bottom: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/*------------------ Product Detailed Page ------------------*/
+
+.product-section {
+  max-width: 800px;
+  margin: auto;
+}
+
+.product-main-info {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10% 0 5%;
+}
+
+.product-main-info img {
+  height: 350px;
+  margin-right: 100px;
+}
+
+.product-main-info div {
+  margin-top: 5%;
+}
+
+.product-main-info p {
+  font-size: 25px;
+}
+
+.product-other-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0 80px; 
+}
+
+.details {
+  max-width: 350px;
+}
+
+/*------------------ Product List Page ------------------*/
