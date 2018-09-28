@@ -36,7 +36,12 @@ class ProductList extends React.Component {
 
         return (
             <section className="product-list">
-               {productList}
+                <ul>
+                    
+                </ul>
+                <ul>
+                    {productList}
+                </ul>
             </section>
         );
 

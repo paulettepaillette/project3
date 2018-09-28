@@ -1,7 +1,7 @@
 /*------------------ General ------------------*/
 
 .container {
-  max-width: 1260px;
+  max-width: 1220px;
   margin: auto;
 }
 
@@ -81,13 +81,48 @@ footer p {
 
 /*------------------ About Page ------------------*/
 
+.our-misssion {
+  margin-top: 70px;
+}
 
 .our-misssion, .our-technology {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.our-misssion .text, .our-technology .text {
+  width: 30%;
 }
 
 .video {
+  margin: 70px 0;
   text-align: center;
+}
+
+
+/*------------------ Contact Page ------------------*/
+
+.form-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70px;
+}
+
+.shop-section {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 70px;
+}
+
+form {
+  width: 400px;
+}
+
+.shop-section .text {
+  background: #f4f3f3;
+  padding-top: 100px;
+  padding-left: 60px;
 }
 
 
@@ -158,10 +193,11 @@ justify-content: space-around;
 .product-other-info {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
+  margin: 25px 0 80px; 
 }
 
 .details {
   max-width: 350px;
 }
 
+/*------------------ Product List Page ------------------*/
