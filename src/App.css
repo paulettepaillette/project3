@@ -62,6 +62,7 @@ footer p {
 .tech-section {
   display:flex;
   justify-content: space-between;
+  
 }
 
 .tech-section-text {
@@ -122,6 +123,7 @@ form {
   background: #f4f3f3;
   padding-top: 100px;
   padding-left: 60px;
+  flex-grow: 1;
 }
 
 
@@ -145,13 +147,25 @@ max-width: 1260px;
   justify-content: center;
 }
 
-.element-container{
-  margin-top: -5%;
+.news-section-down-wrapper{
+  margin-top: -8%;
   margin-bottom: 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   
+}
+
+.brand-section{
+  margin-top: 70px;
+/* padding: 1%; */
+/* background-color: bisque; */
+
+}
+
+.brand-section-wrapper{
+  display: flex;
+  justify-content: space-around;
 }
 
 /*------------------ Product Detailed Page ------------------*/

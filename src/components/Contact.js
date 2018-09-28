@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from "axios";
 
+
+import api from "../api";
 
 class Contact extends Component {
     constructor(props) {
@@ -14,8 +15,8 @@ class Contact extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/contact_us")
-
+       
+            api.get("/contact")
             .then(response => {
                 console.log("react response", response.data)
                 this.setState({ contactData: response.data })
