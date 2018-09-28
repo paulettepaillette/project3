@@ -64,7 +64,7 @@ class Product extends React.Component {
                     <div className= "tech-section-text">
                         <h2>{productData.acf.tech_section_title}</h2>
                         <p>{productData.acf.tech_section_text}</p>
-                        <Link to="/about" >Learn more</Link>
+                        <Link to="/about" className="btn" >Learn more</Link>
                     </div>
                     <img src = {productData.acf.tech_section_image.url} />
                 </div>
