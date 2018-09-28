@@ -90,6 +90,37 @@ footer p {
 }
 
 
+<<<<<<< HEAD
+/* ------------------ Home Page ------------------- */
+
+
+.news-section-top{
+height: 600px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.news-container{
+max-width: 1260px;
+}
+
+.news-section-down{
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+.element-container{
+  margin-top: -5%;
+  margin-bottom: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+=======
 /*------------------ Product Detailed Page ------------------*/
 
 .product-section {
@@ -125,5 +156,6 @@ footer p {
 .details {
   max-width: 350px;
 }
+>>>>>>> 11f430bf36eeafab6f68140692869560189a210d
 
 /*------------------ Product List Page ------------------*/
