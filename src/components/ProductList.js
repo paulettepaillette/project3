@@ -29,7 +29,7 @@ class ProductList extends React.Component {
         const productList = productArray.map((oneProduct)=> {
             return <li key={oneProduct.id}>
                         <h2>{oneProduct.acf.product_title}</h2>
-                        <img src={oneProduct.acf.product_image.link} />
+                        <img src={oneProduct.acf.product_image.url} />
                     </li>
         });
         console.log("this is it", productArray);

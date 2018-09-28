@@ -1,9 +1,5 @@
 /*------------------ General ------------------*/
 
-h1 {
-  padding: 35px 65px;
-}
-
 .container {
   max-width: 1260px;
   margin: auto;
@@ -18,6 +14,19 @@ h1 {
 
 .head-banner h1 {
   padding: 35px 65px;
+}
+
+a {
+  text-decoration: none;
+  border: 1px solid black; 
+  padding: 10px 10px;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: #000;
+  color: #fff;
 }
 
 /*------------------ Header ------------------*/
@@ -49,6 +58,27 @@ footer p {
   padding-left: 30px;
 }
 
+/*------------------ Tech section ------------------*/
+.tech-section {
+  display:flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.tech-section-text {
+  max-width: 400px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.tech-section img {
+  width: 500px;
+}
+
 /*------------------ About Page ------------------*/
 
 
@@ -59,3 +89,41 @@ footer p {
 .video {
   text-align: center;
 }
+
+
+/*------------------ Product Detailed Page ------------------*/
+
+.product-section {
+  max-width: 800px;
+  margin: auto;
+}
+
+.product-main-info {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10% 0 5%;
+}
+
+.product-main-info img {
+  height: 350px;
+  margin-right: 100px;
+}
+
+.product-main-info div {
+  margin-top: 5%;
+}
+
+.product-main-info p {
+  font-size: 25px;
+}
+
+.product-other-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.details {
+  max-width: 350px;
+}
+
