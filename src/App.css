@@ -59,3 +59,35 @@ footer p {
 .video {
   text-align: center;
 }
+
+
+/* ------------------ Home Page ------------------- */
+
+
+.news-section-top{
+height: 600px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.news-container{
+max-width: 1260px;
+}
+
+.news-section-down{
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+.element-container{
+  margin-top: -5%;
+  margin-bottom: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+
