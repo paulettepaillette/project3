@@ -10,6 +10,7 @@
   align-items: flex-end;
   height: 600px;
   background: grey;
+  margin-bottom: 70px;
 }
 
 .head-banner h1 {
@@ -129,7 +130,7 @@ max-width: 1260px;
 .product-main-info {
   display: flex;
   justify-content: flex-start;
-  margin: 10% 0 5%;
+  margin: 0 0 5%;
 }
 
 .product-main-info img {
@@ -156,3 +157,48 @@ max-width: 1260px;
 }
 
 /*------------------ Product List Page ------------------*/
+
+
+.filter-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.filter-list li {
+  margin-right: 5%;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 70px 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.product-list li {
+  margin-bottom: 5%;
+  position: relative;
+}
+
+.product-list-item img { 
+  width: 350px;
+  height: 350px;
+}
+
+.product-list-overlay {
+  position:absolute;
+  background-color:rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  top: 0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.product-list-overlay:hover {
+  display: block;
+  opacity: 1;
+}
