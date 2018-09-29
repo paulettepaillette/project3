@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Product from './components/Product';
 import HomePage from './components/HomePage.js';
-import ProductList from './components/ProductList';
+import ProductListWomen from './components/ProductListWomen';
 import About from './components/About';
 import Contact from './components/Contact';
 
@@ -32,7 +32,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/products" component={ProductList} />
+          <Route exact path="/products" component={ProductListWomen} />
           <Route path="/products/:productId" component={Product} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
