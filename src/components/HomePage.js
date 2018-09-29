@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+
 
 import api from "../api.js";
 
@@ -13,8 +13,8 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/home_page")
-            // api.get("/home-page")
+        // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/home_page")
+        api.get("/home-page")
             .then(response => {
                 console.log("react response", response.data)
                 this.setState({ homeData: response.data })
@@ -29,7 +29,7 @@ class HomePage extends Component {
         console.log(homeData)
         return (
             <div>
-                
+
                 {homeData.map(oneEl => {
                     return (
                         <main>
@@ -86,22 +86,62 @@ class HomePage extends Component {
                                     </div>
                                 </div>
                                 <div className="news-section-down">
-                                    <div className="element-container">
-                                        <div>
-                                            <img src={oneEl.acf.news_section_image_1.url} alt=""/>
-                                            <h2> {oneEl.acf.news_section_title_2} </h2>
-                                            <p> {oneEl.acf.news_section_text_2} </p>
-                                        </div>
-                                        <div>
-                                            <img src={oneEl.acf.news_section_image_2.url} alt=""/>
+                                    <div className="container">
+                                        <div className="news-section-down-wrapper">
+                                            <div>
+                                                <img src={oneEl.acf.news_section_image_1.url} alt="" />
+                                                <h2> {oneEl.acf.news_section_title_2} </h2>
+                                                <p> {oneEl.acf.news_section_text_2} </p>
+                                            </div>
+                                            <div>
+                                                <img src={oneEl.acf.news_section_image_2.url} alt="" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
+                            <section>
+                                <div className="tech-section">
+                                    <div className="tech-section-text">
+                                        <h2>{oneEl.acf.tech_section_title}</h2>
+                                        <p>{oneEl.acf.tech_section_text}</p>
+                                        <a to="/about" >Learn more</a>
+                                    </div>
+                                    <img src={oneEl.acf.tech_section_image.url} />
+                                </div>
+                            </section>
+                            <section className="brand-section">
+                                <div className="brand-section-wrapper  container" >
+                                    <img src={oneEl.acf.brand_section_image_1.url} alt="" />
+                                    <img src={oneEl.acf.brand_section_image_2.url} alt="" />
+                                    <img src={oneEl.acf.brand_section_image_3.url} alt="" />
+                                    <img src={oneEl.acf.brand_section_image_4.url} alt="" />
+                                </div>
+                            </section>
+
+                            <section className="shop-section">
+
+                                <div className="map">
+                                    <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" />
+                                </div>
+
+                                <div className="text">
+                                    <h2>{oneEl.acf.shop_section_title}</h2>
+                                    <h3>{oneEl.acf.shop_section_subtitle_1}</h3>
+                                    <div>{oneEl.acf.shop_section_text_1}</div>
+                                    <h3>{oneEl.acf.shop_section_subtitle_2}</h3>
+                                    <div>{oneEl.acf.shop_section_text_2}</div>
+                                </div>
+
+                                <div className="image">
+                                    <img src={oneEl.acf.shop_section_image.url} alt={oneEl.acf.shop_section_image.alt} height="500px" />
+                                </div>
+
+                            </section>
                         </main>
                     )
                 })
-                
+
                 }
                 {/*  */}
 
