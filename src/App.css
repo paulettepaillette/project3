@@ -272,3 +272,14 @@ max-width: 1260px;
   display: block;
   opacity: 1;
 }
+
+
+
+
+/*-------------------------- Account Page ------------------------- */
+
+.account-section-wrapper{
+  display: flex;
+  justify-content: space-around;
+  height: 600px;
+}
