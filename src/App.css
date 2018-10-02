@@ -280,6 +280,20 @@ max-width: 1260px;
 
 .account-section-wrapper{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 600px;
+}
+
+.member-space-section{
+  /* height: 600px; */
+}
+
+.log-in {
+  border-left: 1px solid blue;
+  padding-left: 200px;
+  height: 300px;
+}
+
+.account-section-wrapper{
+  margin-top: 200px;
 }

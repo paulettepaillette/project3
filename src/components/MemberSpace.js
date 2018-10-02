@@ -37,7 +37,9 @@ class MemberSpace extends Component {
         return ( 
         
             
-            <div>
+            <div className="member-space-section" >
+              <div className="head-banner">   
+              </div>
               <nav className="navbar navbar-dark bg-primary mb-3">
                 <div className="container">
                   <a className="navbar-brand" href="/">Membership space</a>
@@ -65,7 +67,6 @@ class MemberSpace extends Component {
                 </Switch>
                 </div>
                 </div>
-                
                 
               </div>
             </div>

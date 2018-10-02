@@ -14,6 +14,7 @@ class Accout extends Component {
             originalPassword: "",
             loginEmail:"",
             loginOriginalPassword: "",
+            contactData: [],
 
             
         }
@@ -70,11 +71,19 @@ class Accout extends Component {
         .catch(err=> console.log(err))
     }
 
+    componentDidMount() {
+
+        api.get("/contact")
+            .then(response => {
+                console.log("react response", response.data)
+                this.setState({ contactData: response.data })
+            })
+    }
 
 
 
     render() { 
-        const { fullName, email, originalPassword, loginEmail, loginOriginalPassword } = this.state;
+        const { fullName, email, originalPassword, loginEmail, loginOriginalPassword, contactData } = this.state;
         const {currentUser} = this.props;
 
         console.log("current user: ",currentUser);
@@ -87,46 +96,57 @@ class Accout extends Component {
         }
         return ( 
             <section className="account-section">
-                <div className="head-banner">
-                    <h1>Signup/Login</h1>
+                <div className="head-banner">   
                 </div>
                 <div className="account-section-wrapper container" >
-                    <div className="sign-up">
-                        <h2>Sign Up</h2>
+                    <div className="sign-up form-group">
+                        <h3>Sign Up</h3>
                         <form onSubmit={event=>this.handleSignUpSubmit(event)} >
                             <label >
-                                Full name<input type="text" 
+                                Full name
+                                <input type="text" 
+                                className="form-control"
                                 onChange={event => this.updateName(event)}  
                                 value={fullName} placeholder="hey you" />
                             </label>
                             <label >
-                            email<input type="email" 
+                            Email
+                            <input type="email" 
+                            className="form-control"
                             onChange={event => this.updateEmail(event)}  
                             value={email} placeholder="your email" />
                             </label>
                             <label >
-                                Password: <input type="password" 
+                                Password
+                                 <input type="password" 
+                                 className="form-control"
                                 onChange={event => this.updatePassword(event)} 
                                 value={originalPassword} placeholder="your password"/>
                             </label>
-                            <button>Sign Up</button>
+                            <br/>
+                            <button type="submit" className="btn btn-primary" >Sign Up</button>
                         </form>
                     </div>
-                    <div className="log-in">
-                        <h2>Log in</h2>
+                    <div className="log-in form-group">
+                        <h3>Login</h3>
                         <form onSubmit={event=>this.handleLoginSubmit(event)} >
                             
                             <label >
-                            email<input type="email" 
+                            Email
+                            <input type="email"
+                            className="form-control" 
                             onChange={event => this.updateLoginEmail(event)}  
                             value={loginEmail} placeholder="your email" />
                             </label>
                             <label >
-                                Password: <input type="password" 
+                                Password
+                                <input type="password" 
+                                className="form-control"
                                 onChange={event => this.updateLoginPassword(event)} 
                                 value={loginOriginalPassword} placeholder="your password"/>
                             </label>
-                            <button>Sign Up</button>
+                            <br/>
+                            <button type="submit" className="btn btn-primary" >Login</button>
                         </form>
                     </div>
                 </div>

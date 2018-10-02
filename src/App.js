@@ -48,7 +48,7 @@ class TheApp extends Component {
     api.delete("/logout")
       .then(() => {
         this.updateUser(null);
-        this.props.history.push("/")
+        this.props.history.push("/account")
       }
 
       )
@@ -65,24 +65,9 @@ class TheApp extends Component {
 
         <header id="header">
           <a href="/"><h1>Glasses</h1></a>
-          <Navigation />
-
-          {/* <nav>
-          <nav>
-          {currentUser && (
-            <a >
-            <b>Hello {currentUser.fullName}</b>
-            <a href="#0" onClick={()=>this.logoutClick()} >LOG OUT</a>
-            </a>
-          ) }
-            <a href="#0">WOMEN</a>
-            <a href="#0">MEN</a>
-            <a href="#0">ABOUT</a>
-            <a href="#0">CONTACT</a>
-          </nav>
-            <a href="/account">ACCOUNT</a>
-          </nav> */}
-
+          <Navigation  currentUser={currentUser}
+          onLogOutClick={() => this.logoutClick()} />
+          
         </header>
 
 
@@ -93,11 +78,13 @@ class TheApp extends Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
 
-          <Route component={NotFound} />
+          
           <Route path="/member-space"
             render={(props) => <MemberSpace match={props.match} currentUser={currentUser} />} />
           <Route path="/account"
             render={() => <Account currentUser={currentUser} onSignUp={(userDoc) => this.updateUser(userDoc)} onLogin={(userDoc) => this.updateUser(userDoc)} />} />
+        
+        <Route component={NotFound} />
         </Switch>
 
         <footer>
