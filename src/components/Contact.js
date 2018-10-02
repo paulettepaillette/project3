@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 
 
 import api from "../api";
+
 
 class Contact extends Component {
     constructor(props) {
@@ -11,12 +13,14 @@ class Contact extends Component {
             fullName: "",
             email: "",
             message: "",
+            feedbackMessage: "",
         }
     }
 
+
     componentDidMount() {
-       
-            api.get("/contact")
+
+        api.get("/contact")
             .then(response => {
                 console.log("react response", response.data)
                 this.setState({ contactData: response.data })
@@ -39,13 +43,20 @@ class Contact extends Component {
     }
 
     handleSubmit(event) {
-
+        event.preventDefault();
+        api.post("/send-email", this.state)
+            .then((info) => {
+                console.log(info)
+                this.setState({ feedbackMessage: "Your message has been sent" })
+            })
+            .catch(err =>
+                console.log("HandleSubmit pb", err)
+            )
     }
 
-
-
     render() {
-        const { contactData, fullName, email, message } = this.state;
+        const { contactData, fullName, email, message, feedbackMessage } = this.state;
+
 
         return (
 
@@ -65,12 +76,17 @@ class Contact extends Component {
                                     <img src={oneData.acf.form_image.url} height="400px" />
                                 </div>
 
+
                                 <form onSubmit={event => this.handleSubmit(event)}>
+
+                                    {feedbackMessage &&
+                                        <p className="success-message">{feedbackMessage}</p>
+                                    }
 
                                     <div className="form-group">
                                         <label htmlFor="exampleInputName">NAME</label>
                                         <input
-                                            type="email"
+                                            type="text"
                                             className="form-control"
                                             id="exampleInputEmail1"
                                             aria-describedby="emailHelp"
@@ -117,9 +133,9 @@ class Contact extends Component {
                             <div className="text">
                                 <h2>{oneData.acf.shop_section_title}</h2>
                                 <h3>{oneData.acf.shop_section_subtitle_1}</h3>
-                                <div>{oneData.acf.shop_section_text_1}</div>
+                                <div dangerouslySetInnerHTML={{ __html: oneData.acf.shop_section_text_1 }} />
                                 <h3>{oneData.acf.shop_section_subtitle_2}</h3>
-                                <div>{oneData.acf.shop_section_text_2}</div>
+                                <div dangerouslySetInnerHTML={{ __html: oneData.acf.shop_section_text_2 }} />
                             </div>
 
                             <div className="image">
