@@ -230,14 +230,28 @@ max-width: 1260px;
 
 
 .filter-list {
-  list-style-type: none;
   display: flex;
   justify-content: center;
   padding: 0;
 }
 
-.filter-list li {
-  margin-right: 5%;
+.filter-item  {
+  margin-right: 30px;
+  padding-right: 30px;
+  border-right: #000 solid 1px;
+}
+
+.filter-item:hover, .filter-last-item:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-input {
+  margin-right: 15px;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .product-list {
