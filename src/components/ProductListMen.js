@@ -3,7 +3,7 @@ import api from "../api.js";
 
 
 
-class ProductListWomen extends React.Component {
+class ProductListMen extends React.Component {
     constructor(props) {
         super(props)
 
@@ -32,7 +32,7 @@ class ProductListWomen extends React.Component {
         api.get("/products")
             .then(response => {
                 const filteredArray = response.data.filter(oneProduct => {
-                    return oneProduct.categories.includes(3);
+                    return oneProduct.categories.includes(4);
                 });
                 this.productArrayCopy = [...filteredArray]
                 this.setState({ productArray: filteredArray });
@@ -127,7 +127,7 @@ class ProductListWomen extends React.Component {
 
             return <li key={oneProduct.id}>
                 <div className="product-list-item">
-                    <img src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_title} />
+                    <img src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_title}/>
                 </div>
                 <div className="product-list-overlay">
                     <h2>{oneProduct.acf.product_title}</h2>
@@ -138,7 +138,7 @@ class ProductListWomen extends React.Component {
         return (
             <section className="product-list-page">
                 <div className="head-banner">
-                    <h1>Women</h1>
+                    <h1>Men</h1>
                 </div>
                 <div className="container">
                     <div className="filter-list">
@@ -332,4 +332,4 @@ class ProductListWomen extends React.Component {
 
 
 
-export default ProductListWomen;
+export default ProductListMen;

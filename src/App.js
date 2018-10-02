@@ -13,6 +13,7 @@ import Navigation from './components/Navigation';
 import NotFound from './components/NotFound';
 import Account from './components/Account';
 import MemberSpace from './components/MemberSpace';
+import ProductListMen from './components/ProductListMen';
 
 class TheApp extends Component {
 
@@ -88,7 +89,8 @@ class TheApp extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/products" component={ProductListWomen} />
+          <Route path="/products-women" component={ProductListWomen} />
+          <Route path="/products-men" component={ProductListMen} />
           <Route path="/products/:productId" component={Product} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
