@@ -38,22 +38,29 @@ class ProductListWomen extends React.Component {
         const { name, checked } = event.target;
         this.setState({ [name]: checked }, () => {
             console.log("optical:", this.state.optical)
+            console.log("sun:", this.state.sun)
             if (this.state.optical) {
-                const typeArray = this.productArrayCopy.filter(oneProduct => {
+                const typeArray = this.state.productArray.filter(oneProduct => {
                     console.log(this.productArrayCopy);
                     return oneProduct.categories.includes(6)
                 })
                 this.setState({ productArray: typeArray })
-            } else if (!this.state.optical) {
-                this.setState({ productArray: this.productArrayCopy })
-            }
+            }  
+            // else if (!this.state.optical) {
+            //     this.setState({ productArray: this.productArrayCopy })
+            // }
+            
             else if (this.state.sun) {
-                const typeArray = this.productArrayCopy.filter(oneProduct => {
+                const typeArray = this.state.productArray.filter(oneProduct => {
                     console.log(this.productArrayCopy);
                     return oneProduct.categories.includes(5)
                 })
                 this.setState({ productArray: typeArray })
-            } else if (!this.state.sun) {
+            } 
+            // else if (!this.state.sun) {
+            //     this.setState({ productArray: this.productArrayCopy })
+            // }
+            else {
                 this.setState({ productArray: this.productArrayCopy })
             }
         }
