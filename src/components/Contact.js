@@ -127,7 +127,8 @@ class Contact extends Component {
 
                         <div className="shop-section">
                             <div className="map">
-                                <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" />
+                                <div id="map"></div>
+                                {/* <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" /> */}
                             </div>
 
                             <div className="text">
