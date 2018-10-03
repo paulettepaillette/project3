@@ -69,15 +69,12 @@ class Product extends React.Component {
     }
 
     render() {
-<<<<<<< HEAD
         const { productData, isInWishLIst } = this.state;
         console.log("this is it", productData);
         console.log("is it in wish list ?", isInWishLIst )
-=======
-        const { productData } = this.state;
+        
         // console.log("this is it", productData);
         const backgroundStyle = { backgroundImage: `url(${productData.acf.image_banner.url})`};
->>>>>>> 6521d87298eefc618f25f714f214e7987a17b8d8
 
         return (
             <section className="product-details">
