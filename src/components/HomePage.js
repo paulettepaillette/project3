@@ -18,7 +18,7 @@ class HomePage extends Component {
     componentDidMount() {
         api.get("/home-page")
             .then(response => {
-                console.log("react response", response.data)
+                // console.log("react response", response.data)
                 this.setState({ homeData: response.data })
                 this.setState({ contactData: response.data })
             })
@@ -29,13 +29,13 @@ class HomePage extends Component {
 
         let { homeData, contactData } = this.state
 
-        console.log(homeData, contactData)
+        // console.log(homeData)
         return (
             <section className="home-page">
 
-                {homeData.map(oneEl => {
+                {homeData.map((oneEl, index) => {
                     return (
-                        <div className="home-wrapper">
+                        <div key={index} className="home-wrapper">
 
                             <section className="hero-section">
                                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
@@ -94,12 +94,12 @@ class HomePage extends Component {
                                     <div className="container">
                                         <div className="news-section-down-wrapper">
                                             <div>
-                                                <img src={oneEl.acf.news_section_image_1.url} alt="" />
+                                                <img src={oneEl.acf.news_section_image_1.url} alt="news_section_image_1" />
                                                 <h2> {oneEl.acf.news_section_title_2} </h2>
                                                 <p> {oneEl.acf.news_section_text_2} </p>
                                             </div>
                                             <div>
-                                                <img src={oneEl.acf.news_section_image_2.url} alt="" />
+                                                <img src={oneEl.acf.news_section_image_2.url} alt="news_section_image_2" />
                                             </div>
                                         </div>
                                     </div>
@@ -113,15 +113,15 @@ class HomePage extends Component {
                                         <p>{oneEl.acf.tech_section_text}</p>
                                         <a to="/about" >Learn more</a>
                                     </div>
-                                    <img src={oneEl.acf.tech_section_image.url} />
+                                    <img src={oneEl.acf.tech_section_image.url} alt="tech_section_image" />
                                 </div>
                             </section>
                             <section className="brand-section">
                                 <div className="brand-section-wrapper  container" >
-                                    <img src={oneEl.acf.brand_section_image_1.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_2.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_3.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_4.url} alt="" />
+                                    <img src={oneEl.acf.brand_section_image_1.url} alt="brand_section_image1" />
+                                    <img src={oneEl.acf.brand_section_image_2.url} alt="brand_section_image2" />
+                                    <img src={oneEl.acf.brand_section_image_3.url} alt="brand_section_image3" />
+                                    <img src={oneEl.acf.brand_section_image_4.url} alt="brand_section_image4" />
                                 </div>
                             </section>
 

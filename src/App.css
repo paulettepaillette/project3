@@ -35,7 +35,7 @@ h3 {
   display: flex;
   align-items: flex-end;
   height: 600px;
-  background: grey;
+  /* background: grey; */
   margin-bottom: 70px;
 }
 
@@ -324,7 +324,29 @@ form {
   max-width: 350px;
 }
 
+.fa-heart{
+cursor: pointer;
+color: black;
+font-size: 2em;
+}
+
 /*------------------ Product List Page ------------------*/
+
+.product-list-page {
+  min-height: 600px;
+}
+
+.loading {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading img {
+  animation: loading-spin infinite 20s linear;
+  height: 100px;
+}
 
 
 .filter-list {
@@ -380,13 +402,31 @@ form {
   left:0;
   right:0;
 }
+
+.product-list-overlay h2 {
+  width: 60%;
+  margin: 130px auto 0;
+  font-size: 30px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
 .product-list-overlay:hover {
   display: block;
   opacity: 1;
 }
 
+.no-result {
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
 
-
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /*-------------------------- Account Page ------------------------- */
 
@@ -396,9 +436,6 @@ form {
   height: 600px;
 }
 
-.member-space-section{
-  /* height: 600px; */
-}
 
 .log-in {
   border-left: 1px solid blue;
@@ -408,4 +445,28 @@ form {
 
 .account-section-wrapper{
   margin-top: 200px;
+}
+
+/* ----------------------Member-Space-section--------------------------- */
+
+.member-space-section{
+  height: 700px;
+}
+
+.member-space-section-wrapper{
+display: flex;
+justify-content: space-around;
+}
+
+.list-of-choice{
+  flex-grow: 1;
+  margin-right: 100px;
+  width: 350px;
+}
+.choosen-component{
+  width: 700px;
+  height: 400px;
+  flex-grow: 1;
+  border: 1px solid rgb(224, 224, 224);
+  padding: 100px;
 }
