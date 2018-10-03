@@ -244,6 +244,22 @@ max-width: 1260px;
 
 /*------------------ Product List Page ------------------*/
 
+.product-list-page {
+  min-height: 600px;
+}
+
+.loading {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading img {
+  animation: loading-spin infinite 20s linear;
+  height: 100px;
+}
+
 
 .filter-list {
   display: flex;
@@ -298,6 +314,15 @@ max-width: 1260px;
   left:0;
   right:0;
 }
+
+.product-list-overlay h2 {
+  width: 60%;
+  margin: 130px auto 0;
+  font-size: 30px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
 .product-list-overlay:hover {
   display: block;
   opacity: 1;
@@ -310,7 +335,10 @@ max-width: 1260px;
   font-size: 25px;
 }
 
-
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /*-------------------------- Account Page ------------------------- */
 
