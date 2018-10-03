@@ -15,6 +15,7 @@ class Contact extends Component {
             email: "",
             message: "",
             feedbackMessage: "",
+            isDataReceived: false,
         }
     }
 
@@ -24,7 +25,7 @@ class Contact extends Component {
         api.get("/contact")
             .then(response => {
                 console.log("react response", response.data)
-                this.setState({ contactData: response.data })
+                this.setState({ contactData: response.data, isDataReceived: true })
             })
     }
 
@@ -56,12 +57,14 @@ class Contact extends Component {
     }
 
     render() {
-        const { contactData, fullName, email, message, feedbackMessage } = this.state;
+        const { contactData, fullName, email, message, feedbackMessage, isDataReceived } = this.state;
 
 
         return (
 
-            <section className="contact-page">
+            <React.Fragment>
+            { isDataReceived ? 
+            (<section className="contact-page">
 
                 {contactData.map(oneData =>
                     <div key={oneData.id} className="contact-wrapper">
@@ -147,7 +150,16 @@ class Contact extends Component {
 
                     </div>
                 )}
-            </section>
+            </section>)
+            : ( 
+                <section className="loading-page">
+                    <div className="container loading-box">
+                        <img src="./images/loader.png" />
+                        <p>Loading...</p>
+                    </div>
+                </section>
+            )} 
+            </React.Fragment>
 
         );
     }

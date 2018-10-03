@@ -68,8 +68,27 @@ h3 {
   background: #98e1b4;
 }
 
-.home-page {
+.home-page, .product-list-page, .about-page, .contact-page, .loading-page {
   flex-grow: 1;
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading-box {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-box img {
+  animation: loading-spin infinite 1s linear;
+  height: 150px;
+  margin-bottom: 25px;
 }
 
 /*------------------ Header ------------------*/
@@ -214,6 +233,7 @@ max-width: 800px;
 
 /*------------------ About Page ------------------*/
 
+
 .our-misssion {
   margin-top: 70px;
 }
@@ -332,27 +352,11 @@ font-size: 2em;
 
 /*------------------ Product List Page ------------------*/
 
-.product-list-page {
-  min-height: 600px;
-}
-
-.loading {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loading img {
-  animation: loading-spin infinite 20s linear;
-  height: 100px;
-}
 
 
 .filter-list {
   display: flex;
   justify-content: center;
-  padding: 0;
 }
 
 .filter-item  {
