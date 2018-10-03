@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 function Navigation(props) {
     const { currentUser, onLogOutClick } = props;
-console.log(currentUser);
+// console.log(currentUser);
     return (
         <nav>
             

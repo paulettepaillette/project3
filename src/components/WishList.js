@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React  from 'react';
 
 const WishList = (props) => {
-    const {currentUser} = props;
+    // const {currentUser} = props;
     return ( 
         <div>
             <h2>Hello From WishList</h2>

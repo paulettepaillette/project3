@@ -30,7 +30,7 @@ class TheApp extends Component {
     // check with the backend to see if we are already logged in
     api.get("/checklogin")
       .then(response => {
-        console.log("Check LOG IN 🤔", response.data);
+        // console.log("Check LOG IN 🤔", response.data);
         this.updateUser(response.data.userDoc);
       })
       .catch(err => {
