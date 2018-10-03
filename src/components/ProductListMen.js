@@ -24,6 +24,7 @@ class ProductListMen extends React.Component {
             selectedColorCategories: [],
             selectedShapeCategories: [],
             selectedMaterialCategories: [],
+            isDataReceived: false,
         };
 
         this.productArrayCopy = [];
@@ -137,7 +138,7 @@ class ProductListMen extends React.Component {
 
     render() {
         const { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
-        const { productArray, headBannerData } = this.state;
+        const { productArray, headBannerData, isDataReceived } = this.state;
 
 
         //Map loop to display the products
@@ -169,7 +170,7 @@ class ProductListMen extends React.Component {
             <ul className="product-list">
                 {productList}
             </ul>)}
-        else if (productArray.length === 0) { 
+        else if ( isDataReceived && productArray.length === 0) { 
             productResult = (
             <div className="no-result">               
             <p>Sorry, we don't have the product you're looking for</p>

@@ -24,6 +24,7 @@ class ProductListWomen extends React.Component {
             selectedColorCategories: [],
             selectedShapeCategories: [],
             selectedMaterialCategories: [],
+            isDataReceived: false,
         };
 
         this.productArrayCopy = [];
@@ -38,7 +39,7 @@ class ProductListWomen extends React.Component {
                     return oneProduct.categories.includes(3);
                 });
                 this.productArrayCopy = [...filteredArray]
-                this.setState({ productArray: filteredArray });
+                this.setState({ productArray: filteredArray, isDataReceived: true });
             })
             .catch(err => {
                 console.log(err);
@@ -137,7 +138,7 @@ class ProductListWomen extends React.Component {
 
     render() {
         const { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
-        const { productArray, headBannerData } = this.state;
+        const { productArray, headBannerData, isDataReceived } = this.state;
 
         //Map loop to display the products
         const productList = productArray.map((oneProduct) => {
@@ -168,7 +169,7 @@ class ProductListWomen extends React.Component {
             <ul className="product-list">
                 {productList}
             </ul>)}
-        else if (productArray.length === 0) { 
+        else if  ( isDataReceived && productArray.length === 0) { 
             productResult = (                
                 <div className="no-result">               
                 <p>Sorry, we don't have the product you're looking for</p>
@@ -176,6 +177,9 @@ class ProductListWomen extends React.Component {
 
         return (
             <section className="product-list-page">
+            
+        { isDataReceived ? 
+            ( <React.Fragment>
                 {headBanner}
                 <div className="container">
                     <div className="filter-list">
@@ -359,7 +363,16 @@ class ProductListWomen extends React.Component {
                     </div>
                  {productResult}
                 </div>
-            </section>
+            </React.Fragment> ) 
+        : (
+            <div className="container loading">
+            <img src="./images/loader.png" />
+            <p>Loading...</p>
+            </div>
+         ) 
+        }
+        </section>
+            
         );
 
     }

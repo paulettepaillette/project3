@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import SimpleMap from './SimpleMap';
+
 
 import api from "../api.js";
 
@@ -8,31 +10,33 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            homeData: []
+            homeData: [],
+            contactData: []
         };
     }
 
     componentDidMount() {
-        // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/home_page")
         api.get("/home-page")
             .then(response => {
                 // console.log("react response", response.data)
                 this.setState({ homeData: response.data })
+                this.setState({ contactData: response.data })
             })
     }
 
 
     render() {
 
-        let { homeData } = this.state
+        let { homeData, contactData } = this.state
 
         // console.log(homeData)
         return (
-            <div>
+            <section className="home-page">
 
-                {homeData.map((oneEl,index) => {
+                {homeData.map((oneEl, index) => {
                     return (
-                        <main key={index}>
+                        <div key={index} className="home-wrapper">
+
                             <section className="hero-section">
                                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                     <div className="carousel-inner">
@@ -41,7 +45,7 @@ class HomePage extends Component {
                                             <div className="carousel-caption d-none d-md-block">
                                                 <h1> {oneEl.acf.slider_titre_1}</h1>
                                                 <p>{oneEl.acf.slider_text_1}</p>
-                                                <button> <a href={oneEl.acf.slider_button_1.url} > {oneEl.acf.slider_button_1.title}  </a> </button>
+                                                <a className="btn" href={oneEl.acf.slider_button_1.url}> {oneEl.acf.slider_button_1.title}</a>
                                             </div>
 
                                         </div>
@@ -50,7 +54,7 @@ class HomePage extends Component {
                                             <div className="carousel-caption d-none d-md-block">
                                                 <h1> {oneEl.acf.slider_titre_2}</h1>
                                                 <p>{oneEl.acf.slider_text_2}</p>
-                                                <button> <a href={oneEl.acf.slider_button_2.url} > {oneEl.acf.slider_button_2.title}  </a> </button>
+                                                <a className="btn" href={oneEl.acf.slider_button_2.url}> {oneEl.acf.slider_button_2.title}</a>
                                             </div>
                                         </div>
                                         <div className="carousel-item">
@@ -58,7 +62,7 @@ class HomePage extends Component {
                                             <div className="carousel-caption d-none d-md-block">
                                                 <h1> {oneEl.acf.slider_titre_3}</h1>
                                                 <p>{oneEl.acf.slider_text_3}</p>
-                                                <button> <a href={oneEl.acf.slider_button_3.url} > {oneEl.acf.slider_button_3.title}  </a> </button>
+                                                <a className="btn" href={oneEl.acf.slider_button_3.url} > {oneEl.acf.slider_button_3.title}  </a>
                                             </div>
                                         </div>
                                     </div>
@@ -73,15 +77,16 @@ class HomePage extends Component {
 
                                 </div>
                             </section>
+
                             <section className="news-section" >
                                 <div className="news-section-top">
                                     <div className="news-container">
-                                        <p>{oneEl.acf.news_section_intro}</p>
+                                        <span>{oneEl.acf.news_section_intro}</span>
                                         <h2>{oneEl.acf.news_section_title}</h2>
                                         <p>{oneEl.acf.news_section_text}</p>
                                         <div>
-                                            <button><a href={oneEl.acf.news_section_button_1.url} > {oneEl.acf.news_section_button_1.title}  </a></button>
-                                            <button><a href={oneEl.acf.news_section_button_2.url} > {oneEl.acf.news_section_button_2.title}  </a></button>
+                                            <a className="btn" href={oneEl.acf.news_section_button_1.url}> {oneEl.acf.news_section_button_1.title}</a>
+                                            <a className="btn" href={oneEl.acf.news_section_button_2.url}> {oneEl.acf.news_section_button_2.title}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,6 +105,7 @@ class HomePage extends Component {
                                     </div>
                                 </div>
                             </section>
+
                             <section>
                                 <div className="tech-section">
                                     <div className="tech-section-text">
@@ -121,16 +127,16 @@ class HomePage extends Component {
 
                             <section className="shop-section">
 
-                                <div className="map">
-                                    <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" alt="Map" />
+                                <div className="map-section">
+                                    <SimpleMap contactData={contactData} />
                                 </div>
 
                                 <div className="text">
                                     <h2>{oneEl.acf.shop_section_title}</h2>
                                     <h3>{oneEl.acf.shop_section_subtitle_1}</h3>
-                                    <div>{oneEl.acf.shop_section_text_1}</div>
+                                    <div dangerouslySetInnerHTML={{ __html: oneEl.acf.shop_section_text_1 }} />
                                     <h3>{oneEl.acf.shop_section_subtitle_2}</h3>
-                                    <div>{oneEl.acf.shop_section_text_2}</div>
+                                    <div dangerouslySetInnerHTML={{ __html: oneEl.acf.shop_section_text_2 }} />
                                 </div>
 
                                 <div className="image">
@@ -138,7 +144,8 @@ class HomePage extends Component {
                                 </div>
 
                             </section>
-                        </main>
+
+                        </div>
                     )
                 })
 
@@ -146,7 +153,7 @@ class HomePage extends Component {
                 {/*  */}
 
 
-            </div>
+            </section>
         );
     }
 }
