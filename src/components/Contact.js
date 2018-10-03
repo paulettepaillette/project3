@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 
+import SimpleMap from './SimpleMap';
 
 import api from "../api";
 
@@ -63,7 +64,7 @@ class Contact extends Component {
             <section className="contact-page">
 
                 {contactData.map(oneData =>
-                    <div key={oneData.id}>
+                    <div key={oneData.id} className="contact-wrapper">
 
                         <div className="head-banner">
                             <h1>{oneData.acf.head_banner_title}</h1>
@@ -126,9 +127,8 @@ class Contact extends Component {
                         </div>
 
                         <div className="shop-section">
-                            <div className="map">
-                                <div id="map"></div>
-                                {/* <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" /> */}
+                            <div className="map-section">
+                                <SimpleMap contactData={contactData} />
                             </div>
 
                             <div className="text">

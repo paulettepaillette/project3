@@ -14,7 +14,7 @@ class About extends Component {
 
     componentDidMount() {
         // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
-            api.get("/about")
+        api.get("/about")
             .then(response => {
                 console.log("react response", response.data)
                 this.setState({ aboutData: response.data })
@@ -30,7 +30,7 @@ class About extends Component {
             <section className="about-page">
 
                 {aboutData.map(oneData =>
-                    <div key={oneData.id}>
+                    <div key={oneData.id} className="about-wrapper">
 
                         <div className="head-banner">
                             <h1>{oneData.acf.head_banner_title}</h1>
