@@ -31,8 +31,7 @@ class About extends Component {
 
                 {aboutData.map(oneData =>
                     <div key={oneData.id}>
-
-                        <div className="head-banner">
+                        <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})`}} className="head-banner">
                             <h1>{oneData.acf.head_banner_title}</h1>
                         </div>
 

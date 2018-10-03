@@ -1,5 +1,6 @@
 import React from 'react';
 import api from "../api.js";
+import { Link } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ class ProductListMen extends React.Component {
 
         this.state = {
             productArray: [],
+            headBannerData: [],
             optical: false,
             sun: false,
             blue: false,
@@ -29,6 +31,7 @@ class ProductListMen extends React.Component {
     }
 
     componentDidMount() {
+        //To retrieve products information and filter them to get only men products
         api.get("/products")
             .then(response => {
                 const filteredArray = response.data.filter(oneProduct => {
@@ -36,6 +39,17 @@ class ProductListMen extends React.Component {
                 });
                 this.productArrayCopy = [...filteredArray]
                 this.setState({ productArray: filteredArray });
+            })
+            .catch(err => {
+                console.log(err);
+                alert("Sorry! Something went wrong!")
+            });
+        
+        //To retrieve head-banner information
+        api.get("/men-category")
+            .then(response => {
+                console.log("react category response", response.data)
+                this.setState({ headBannerData: response.data })
             })
             .catch(err => {
                 console.log(err);
@@ -122,10 +136,14 @@ class ProductListMen extends React.Component {
 
 
     render() {
-        const { productArray, optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
-        const productList = productArray.map((oneProduct) => {
+        const { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
+        const { productArray, headBannerData } = this.state;
 
-            return <li key={oneProduct.id}>
+
+        //Map loop to display the products
+        const productList = productArray.map((oneProduct) => {
+            return <Link to={`/products/${oneProduct.id}`} key={oneProduct.id}>
+                <li>
                 <div className="product-list-item">
                     <img src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_title}/>
                 </div>
@@ -133,13 +151,33 @@ class ProductListMen extends React.Component {
                     <h2>{oneProduct.acf.product_title}</h2>
                 </div>
             </li>
+            </Link>
         });
+        
+        //Map loop to display the head-banner info
+        const headBanner = headBannerData.map(oneData => {
+            const backgroundStyle = { backgroundImage: `url(${oneData.acf.head_banner_image.url})`};
+            return  <div key= {oneData.id} style={backgroundStyle} className="head-banner">
+                        <h1>{oneData.acf.head_banner_title}</h1>
+                    </div>
+        });
+        
+        //To display a message when the filters selected do not display a product
+        let productResult;
+        if (productArray.length > 0) { 
+            productResult = (
+            <ul className="product-list">
+                {productList}
+            </ul>)}
+        else if (productArray.length === 0) { 
+            productResult = (
+            <div className="no-result">               
+            <p>Sorry, we don't have the product you're looking for</p>
+            </div>)}
 
         return (
             <section className="product-list-page">
-                <div className="head-banner">
-                    <h1>Men</h1>
-                </div>
+                {headBanner}
                 <div className="container">
                     <div className="filter-list">
 
@@ -320,9 +358,7 @@ class ProductListMen extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <ul className="product-list">
-                        {productList}
-                    </ul>
+                    {productResult}
                 </div>
             </section>
         );
