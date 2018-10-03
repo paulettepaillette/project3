@@ -37,15 +37,15 @@ class Product extends React.Component {
           // console.log("Check LOG IN 🤔", response.data);
           this.setState({currentUser : response.data.userDoc},()=>{
               
-              let wishList =  this.state.currentUser.wishList;
-              console.log(wishList);
-              let id = this.state.productData.id;
-              console.log(id);
-                if(wishList.includes(id))
-                {
-                    console.log("yes it is")
-                    this.setState({isInWishLIst: true})
-                }
+            //   let wishList =  this.state.currentUser.wishList;
+            //   console.log(wishList);
+            //   let id = this.state.productData.id;
+            //   console.log(id);
+            //     if(wishList.includes(id))
+            //     {
+            //         console.log("yes it is")
+            //         this.setState({isInWishLIst: true})
+            //     }
 
           });
           console.log("current user:",this.state.currentUser);
