@@ -49,8 +49,8 @@ class ProductListWomen extends React.Component {
         //To retrieve head-banner information
         api.get("/women-category")
             .then(response => {
-                console.log("react category response", response.data)
                 this.setState({ headBannerData: response.data })
+                console.log("react category response", response.data)
             })
             .catch(err => {
                 console.log(err);
