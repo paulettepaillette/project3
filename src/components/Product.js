@@ -10,7 +10,8 @@ class Product extends React.Component {
             productData: {
                 acf: {
                     product_image:{},
-                    tech_section_image:{}
+                    tech_section_image:{},
+                    image_banner:{},
                 }
             },
             currentUser: "",
@@ -19,6 +20,7 @@ class Product extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         const { params } = this.props.match;
         api.get(`/products/${params.productId}`)
             .then(response => {
@@ -67,14 +69,19 @@ class Product extends React.Component {
     }
 
     render() {
+<<<<<<< HEAD
         const { productData, isInWishLIst } = this.state;
         console.log("this is it", productData);
         console.log("is it in wish list ?", isInWishLIst )
+=======
+        const { productData } = this.state;
+        // console.log("this is it", productData);
+        const backgroundStyle = { backgroundImage: `url(${productData.acf.image_banner.url})`};
+>>>>>>> 6521d87298eefc618f25f714f214e7987a17b8d8
 
         return (
             <section className="product-details">
-                <div className="head-banner">
-                </div>
+                <div style={backgroundStyle} className="head-banner"></div>
                 <div className="product-section">
                     <div className="product-main-info">
                         <img src = {productData.acf.product_image.url} alt="Product image"/>
