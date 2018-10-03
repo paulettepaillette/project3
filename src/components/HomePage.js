@@ -16,7 +16,7 @@ class HomePage extends Component {
         // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/home_page")
         api.get("/home-page")
             .then(response => {
-                console.log("react response", response.data)
+                // console.log("react response", response.data)
                 this.setState({ homeData: response.data })
             })
     }
@@ -26,13 +26,13 @@ class HomePage extends Component {
 
         let { homeData } = this.state
 
-        console.log(homeData)
+        // console.log(homeData)
         return (
             <div>
 
-                {homeData.map(oneEl => {
+                {homeData.map((oneEl,index) => {
                     return (
-                        <main>
+                        <main key={index}>
                             <section className="hero-section">
                                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                     <div className="carousel-inner">
@@ -89,12 +89,12 @@ class HomePage extends Component {
                                     <div className="container">
                                         <div className="news-section-down-wrapper">
                                             <div>
-                                                <img src={oneEl.acf.news_section_image_1.url} alt="" />
+                                                <img src={oneEl.acf.news_section_image_1.url} alt="news_section_image_1" />
                                                 <h2> {oneEl.acf.news_section_title_2} </h2>
                                                 <p> {oneEl.acf.news_section_text_2} </p>
                                             </div>
                                             <div>
-                                                <img src={oneEl.acf.news_section_image_2.url} alt="" />
+                                                <img src={oneEl.acf.news_section_image_2.url} alt="news_section_image_2" />
                                             </div>
                                         </div>
                                     </div>
@@ -107,22 +107,22 @@ class HomePage extends Component {
                                         <p>{oneEl.acf.tech_section_text}</p>
                                         <a to="/about" >Learn more</a>
                                     </div>
-                                    <img src={oneEl.acf.tech_section_image.url} />
+                                    <img src={oneEl.acf.tech_section_image.url} alt="tech_section_image" />
                                 </div>
                             </section>
                             <section className="brand-section">
                                 <div className="brand-section-wrapper  container" >
-                                    <img src={oneEl.acf.brand_section_image_1.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_2.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_3.url} alt="" />
-                                    <img src={oneEl.acf.brand_section_image_4.url} alt="" />
+                                    <img src={oneEl.acf.brand_section_image_1.url} alt="brand_section_image1" />
+                                    <img src={oneEl.acf.brand_section_image_2.url} alt="brand_section_image2" />
+                                    <img src={oneEl.acf.brand_section_image_3.url} alt="brand_section_image3" />
+                                    <img src={oneEl.acf.brand_section_image_4.url} alt="brand_section_image4" />
                                 </div>
                             </section>
 
                             <section className="shop-section">
 
                                 <div className="map">
-                                    <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" />
+                                    <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/09/map.jpg" alt="Map" />
                                 </div>
 
                                 <div className="text">

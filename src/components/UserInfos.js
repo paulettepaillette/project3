@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React  from 'react';
 
 const UserInfo = (props) => {
   const {currentUser} = props;
-  console.log("from user info",props)
+  // console.log("from user info",props)
     return ( 
         <div>
-                    <h2>Hello  {currentUser.fullName}</h2>
-                    <table class="table">
+                    <p>Hello  {currentUser.fullName}</p>
+                    <table className="table">
                       <thead></thead>
                       <tbody>
                         <tr>

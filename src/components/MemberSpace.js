@@ -6,6 +6,7 @@ import api from "../api"
 import UserInfo from './UserInfos';
 import Orders from './Orders';
 import WishList from './WishList';
+import ProfileEdit from './ProfileEdit';
 
 class MemberSpace extends Component {
     constructor(props){
@@ -19,7 +20,7 @@ class MemberSpace extends Component {
         // check with the backend to see if we are already logged in
         api.get("/checklogin")
           .then(response => {
-            console.log("Check LOG IN 🤔", response.data);
+            // console.log("Check LOG IN 🤔", response.data);
             this.setState({currentUser : response.data.userDoc});
           })
           .catch(err => {
@@ -29,43 +30,46 @@ class MemberSpace extends Component {
       }
     
     render() { 
-        console.log(this.props)
+        // console.log(this.props)
         const {currentUser} = this.state;
-        console.log("this is current name", currentUser);
+        // console.log("this is current name", currentUser);
         const {match} = this.props;
         
         return ( 
         
             
-            <div className="member-space-section" >
+            <div className="member-space-page" >
               <div className="head-banner">   
               </div>
-              <nav className="navbar navbar-dark bg-primary mb-3">
-                <div className="container">
-                  <a className="navbar-brand" href="/">Membership space</a>
-                </div>
-              </nav>
-              <div className="container">
-                <div className="row">
-                  <div className="col-5" >
-                    <div className="list-group">
-                      {/* <a class="list-group-item list-group-item-action" href="/user-info">Infos</a> */}
-                      <Link className="list-group-item list-group-item-action" to={`${match.url}/user-info`} > Infos </Link>
-                      <Link className="list-group-item list-group-item-action" to={`${match.url}/orders`} > Orders </Link>
-                      <Link className="list-group-item list-group-item-action" to={`${match.url}/wish-list`} > WishLIst </Link>
-                      
+              
+              <div className="member-space-section">
+                <div className="container" >
+                  <div className="member-space-section-wrapper">
+                    <div className="list-of-choice" >
+                      <div className="list-group">
+                        {/* <a class="list-group-item list-group-item-action" href="/user-info">Infos</a> */}
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}/user-info`} > Infos </Link>
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}/orders`} > Orders </Link>
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}/wish-list`} > WishLIst </Link>
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}/edit-profile`} > Edit Your Profile </Link>
+                        
+                      </div>
+                    </div>
+                    <div className="choosen-component" >
+                      <Switch>
+                      <Route  exact path={`${match.url}/user-info`}
+                      render={()=> <UserInfo currentUser={currentUser} /> } />
+                      <Route  path={`${match.url}/orders`}
+                      render={()=> <Orders currentUser={currentUser} /> } />
+                      <Route  path={`${match.url}/wish-list`}
+                      render={()=> <WishList currentUser={currentUser} /> } />
+                      <Route  path={`${match.url}/edit-profile`}
+                      render={()=> <ProfileEdit currentUser={currentUser} /> } />
+                      <Route 
+                      render={()=> <h1>Morning sir</h1> } />
+                      </Switch>
                     </div>
                   </div>
-                  <div className="col-7" >
-                <Switch>
-                <Route  exact path={`${match.url}/user-info`}
-                render={()=> <UserInfo currentUser={currentUser} /> } />
-                 <Route  path={`${match.url}/orders`}
-                render={()=> <Orders currentUser={currentUser} /> } />
-                 <Route  path={`${match.url}/wish-list`}
-                render={()=> <WishList currentUser={currentUser} /> } />
-                </Switch>
-                </div>
                 </div>
                 
               </div>
@@ -76,5 +80,6 @@ class MemberSpace extends Component {
         );
     }
 }
- 
+
+
 export default MemberSpace;

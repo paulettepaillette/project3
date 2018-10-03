@@ -242,6 +242,12 @@ max-width: 1260px;
   max-width: 350px;
 }
 
+.fa-heart{
+cursor: pointer;
+color: black;
+font-size: 2em;
+}
+
 /*------------------ Product List Page ------------------*/
 
 .product-list-page {
@@ -348,9 +354,6 @@ max-width: 1260px;
   height: 600px;
 }
 
-.member-space-section{
-  /* height: 600px; */
-}
 
 .log-in {
   border-left: 1px solid blue;
@@ -360,4 +363,28 @@ max-width: 1260px;
 
 .account-section-wrapper{
   margin-top: 200px;
+}
+
+/* ----------------------Member-Space-section--------------------------- */
+
+.member-space-section{
+  height: 700px;
+}
+
+.member-space-section-wrapper{
+display: flex;
+justify-content: space-around;
+}
+
+.list-of-choice{
+  flex-grow: 1;
+  margin-right: 100px;
+  width: 350px;
+}
+.choosen-component{
+  width: 700px;
+  height: 400px;
+  flex-grow: 1;
+  border: 1px solid rgb(224, 224, 224);
+  padding: 100px;
 }

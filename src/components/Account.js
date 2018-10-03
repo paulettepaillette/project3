@@ -86,7 +86,7 @@ class Accout extends Component {
         const { fullName, email, originalPassword, loginEmail, loginOriginalPassword, contactData } = this.state;
         const {currentUser} = this.props;
 
-        console.log("current user: ",currentUser);
+        // console.log("current user: ",currentUser);
 
         
         if(currentUser){
