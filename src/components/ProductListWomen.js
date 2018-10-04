@@ -178,7 +178,7 @@ class ProductListWomen extends React.Component {
 
         return (
             
-            <React.Fragment>
+        <React.Fragment>
              
         { isDataReceived ? 
             ( <section className="product-list-page">
