@@ -67,7 +67,7 @@ class MemberSpace extends Component {
         const {currentUser, headBannerData, isDataReceived} = this.state;
         // console.log("this is current name", currentUser);
         const {match} = this.props;
-        console.log("match:",match);
+
         const headBanner = headBannerData.map(oneData => {
           const backgroundStyle = { backgroundImage: `url(${oneData.acf.head_banner.url})`};
           return  <div key= {oneData.id} style={backgroundStyle} className="head-banner">
