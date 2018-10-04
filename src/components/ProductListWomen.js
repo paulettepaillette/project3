@@ -136,6 +136,13 @@ class ProductListWomen extends React.Component {
 
     }
 
+    filterClass(isChecked) {
+        if (isChecked) {
+            return "filter-selected";
+        }
+
+        return "";
+    }
 
     render() {
         const { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
@@ -178,7 +185,7 @@ class ProductListWomen extends React.Component {
 
         return (
             
-            <React.Fragment>
+        <React.Fragment>
              
         { isDataReceived ? 
             ( <section className="product-list-page">
@@ -187,11 +194,12 @@ class ProductListWomen extends React.Component {
                     <div className="filter-list">
 
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Type
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Type</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div className="dropdown-item">
+                                <label className={`dropdown-item ${this.filterClass(optical)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -201,10 +209,10 @@ class ProductListWomen extends React.Component {
                                     name="optical"
                                     data-filter="type" />
                                     Optical
-                                </div>
+                                </label>
                                 
 
-                                <div className="dropdown-item">
+                                <label className={`dropdown-item ${this.filterClass(sun)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -215,17 +223,18 @@ class ProductListWomen extends React.Component {
                                     data-filter="type"
                                     />
                                     Sun Glasses
-                                </div>
+                                </label>
                             </div>
                         </div>
 
 
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Color
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Color</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div className="dropdown-item">
+                                <label className={`dropdown-item ${this.filterClass(blue)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -236,8 +245,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="color"
                                     />
                                     Blue
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(green)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -248,8 +257,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="color"
                                     />
                                     Green
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(grey)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -260,8 +269,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="color"
                                     />
                                     Grey
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(purple)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -272,16 +281,17 @@ class ProductListWomen extends React.Component {
                                     data-filter="color"
                                     />
                                     Purple
-                                </div>
+                                </label>
                             </div>
                         </div>
                         
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Shape
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Shape</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div className="dropdown-item">
+                                <label className={`dropdown-item ${this.filterClass(oval)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -292,8 +302,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="shape"
                                     />
                                     Oval
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(round)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -304,8 +314,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="shape"
                                     />
                                     Round
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(square)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -316,15 +326,16 @@ class ProductListWomen extends React.Component {
                                     data-filter="shape"
                                     />
                                     Square
-                                </div>
+                                </label>
                             </div>
                         </div>
                         <div className="dropdown">
-                            <div className="filter-last-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Materials
+                            <div className="filter-last-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Materials</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div className="dropdown-item">
+                                <label className={`dropdown-item ${this.filterClass(metal)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -335,8 +346,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="material"
                                     />
                                     Metal
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(plastic)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -347,8 +358,8 @@ class ProductListWomen extends React.Component {
                                     data-filter="material"
                                     />
                                     Plastic
-                                </div>
-                                <div className="dropdown-item">
+                                </label>
+                                <label className={`dropdown-item ${this.filterClass(steel)}`}>
                                     <input
                                     className="filter-input"
                                     type="checkbox"
@@ -359,7 +370,7 @@ class ProductListWomen extends React.Component {
                                     data-filter="material"
                                     />
                                     Steel
-                                </div>
+                                </label>
                             </div>
                         </div>
                     </div>

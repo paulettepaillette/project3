@@ -11,7 +11,8 @@ class HomePage extends Component {
 
         this.state = {
             homeData: [],
-            contactData: []
+            contactData: [],
+            isDataReceived: false,
         };
     }
 
@@ -19,7 +20,7 @@ class HomePage extends Component {
         api.get("/home-page")
             .then(response => {
                 // console.log("react response", response.data)
-                this.setState({ homeData: response.data })
+                this.setState({ homeData: response.data, isDataReceived: true })
                 this.setState({ contactData: response.data })
             })
     }
@@ -27,11 +28,15 @@ class HomePage extends Component {
 
     render() {
 
-        let { homeData, contactData } = this.state
+        let { homeData, contactData, isDataReceived } = this.state
 
         // console.log(homeData)
         return (
-            <section className="home-page">
+        
+        <React.Fragment>
+             
+        { isDataReceived ? 
+            ( <section className="home-page">
 
                 {homeData.map((oneEl, index) => {
                     return (
@@ -154,7 +159,18 @@ class HomePage extends Component {
                 {/*  */}
 
 
+            </section>)
+        : ( 
+            <section className="loading-page">
+                <div className="container loading-box">
+                    <img src="./images/loader.png" />
+                    <p>Loading...</p>
+                </div>
             </section>
+          ) 
+        } 
+        </React.Fragment>
+        
         );
     }
 }
