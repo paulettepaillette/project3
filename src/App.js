@@ -31,7 +31,7 @@ class TheApp extends Component {
     api.get("/checklogin")
       .then(response => {
         // console.log("Check LOG IN 🤔", response.data);
-        this.updateUser(response.data.userDoc);
+        // this.updateUser(response.data.userDoc);
       })
       .catch(err => {
         console.log(err);
@@ -49,7 +49,7 @@ class TheApp extends Component {
     api.delete("/logout")
       .then(() => {
         this.updateUser(null);
-        this.props.history.push("/")
+        // this.props.history.push("/")
       }
 
       )
@@ -60,7 +60,7 @@ class TheApp extends Component {
 
   render() {
     const { currentUser } = this.state;
-
+    console.log(this.props.match)
     return (
       <main>
 
