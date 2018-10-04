@@ -65,10 +65,10 @@ class TheApp extends Component {
       <main>
 
         <header id="header">
-          <a href="/"><h1>Glasses</h1></a>
-          <Navigation  currentUser={currentUser}
-          onLogOutClick={() => this.logoutClick()} />
-          
+          <a href="/"><h1>Prism</h1></a>
+          <Navigation currentUser={currentUser}
+            onLogOutClick={() => this.logoutClick()} />
+
         </header>
 
 
@@ -80,13 +80,13 @@ class TheApp extends Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
 
-          
+
           <Route path="/member-space"
             render={(props) => <MemberSpace match={props.match} currentUser={currentUser} />} />
           <Route path="/account"
             render={() => <Account currentUser={currentUser} onSignUp={(userDoc) => this.updateUser(userDoc)} onLogin={(userDoc) => this.updateUser(userDoc)} />} />
-        
-        <Route component={NotFound} />
+
+          <Route component={NotFound} />
         </Switch>
 
         <footer>
