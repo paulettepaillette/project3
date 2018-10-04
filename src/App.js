@@ -31,7 +31,7 @@ class TheApp extends Component {
     api.get("/checklogin")
       .then(response => {
         // console.log("Check LOG IN 🤔", response.data);
-        this.updateUser(response.data.userDoc);
+        // this.updateUser(response.data.userDoc);
       })
       .catch(err => {
         console.log(err);
@@ -60,15 +60,15 @@ class TheApp extends Component {
 
   render() {
     const { currentUser } = this.state;
-
+    console.log(this.props.match)
     return (
       <main>
 
         <header id="header">
-          <a href="/"><h1>Glasses</h1></a>
-          <Navigation  currentUser={currentUser}
-          onLogOutClick={() => this.logoutClick()} />
-          
+          <a href="/"><h1>Prism</h1></a>
+          <Navigation currentUser={currentUser}
+            onLogOutClick={() => this.logoutClick()} />
+
         </header>
 
 
@@ -80,13 +80,13 @@ class TheApp extends Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
 
-          
+
           <Route path="/member-space"
             render={(props) => <MemberSpace match={props.match} currentUser={currentUser} />} />
           <Route path="/account"
             render={() => <Account currentUser={currentUser} onSignUp={(userDoc) => this.updateUser(userDoc)} onLogin={(userDoc) => this.updateUser(userDoc)} />} />
-        
-        <Route component={NotFound} />
+
+          <Route component={NotFound} />
         </Switch>
 
         <footer>

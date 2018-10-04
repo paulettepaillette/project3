@@ -14,7 +14,9 @@ class Product extends React.Component {
                     image_banner: {},
                 }
             },
-            currentUser: "",
+            currentUser: { 
+                wishList: [],
+            },
             isInWishLIst: false
         };
     }
@@ -30,7 +32,10 @@ class Product extends React.Component {
                             .then(response => {
                             // console.log("Check LOG IN 🤔", response.data);
                             this.setState({currentUser : response.data.userDoc},()=>{
-                                
+                                if (!this.state.currentUser) {
+                                    return;
+                                }
+
                                 let wishList =  this.state.currentUser.wishList;
                                 let id = this.state.productData.id;
                                     if(wishList.includes(id.toString()))
@@ -79,7 +84,7 @@ class Product extends React.Component {
     }
 
     render() {
-        const { productData, isInWishLIst } = this.state;
+        const { productData, isInWishLIst, currentUser } = this.state;
         console.log("this is it", productData);
         console.log("is it in wish list ?", isInWishLIst)
 
@@ -95,9 +100,9 @@ class Product extends React.Component {
                         <div>
                             <h1>{productData.acf.product_title}</h1>
                             <p>{productData.acf.price} €</p>
-                            {isInWishLIst?
+                            {currentUser && (isInWishLIst?
                             <i className="fas fa-heart" onClick={()=>this.removeFromWishlist()} >  </i>: 
-                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i>
+                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i>)
                             
                                 }
                         </div>
