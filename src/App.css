@@ -390,10 +390,26 @@ font-size: 2em;
   margin-right: 30px;
   padding-right: 30px;
   border-right: #000 solid 1px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-last-item{
+  display: flex;
+  align-items: center;
+}
+
+.filter-item p, .filter-last-item p {
+  margin: 0 5px 0 0;
+}
+
+.filter-item img, .filter-last-item img {
+  width: 12px;
+  height: 12px;
 }
 
 .filter-item:hover, .filter-last-item:hover {
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
 }
 
@@ -401,21 +417,18 @@ font-size: 2em;
   margin-right: 15px;
 }
 
-.dropdown-toggle::after {
-  display: none;
-}
 
 .product-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 70px 0;
+  margin: 70px 0 50px;
   padding: 0;
   list-style-type: none;
 }
 
 .product-list li {
-  margin-bottom: 5%;
+  margin-bottom: 12%;
   position: relative;
 }
 
