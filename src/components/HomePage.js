@@ -82,8 +82,9 @@ class HomePage extends Component {
                                 <div className="news-section-top">
                                     <div className="news-container">
                                         <span>{oneEl.acf.news_section_intro}</span>
+                                        <img src="http://dev.paulettepaulette.com/admin/wp-content/uploads/2018/10/cross.svg" height="12px" />
                                         <h2>{oneEl.acf.news_section_title}</h2>
-                                        <p>{oneEl.acf.news_section_text}</p>
+                                        <div dangerouslySetInnerHTML={{ __html: oneEl.acf.news_section_text }} />
                                         <div>
                                             <a className="btn" href={oneEl.acf.news_section_button_1.url}> {oneEl.acf.news_section_button_1.title}</a>
                                             <a className="btn" href={oneEl.acf.news_section_button_2.url}> {oneEl.acf.news_section_button_2.title}</a>
@@ -96,9 +97,9 @@ class HomePage extends Component {
                                             <div>
                                                 <img src={oneEl.acf.news_section_image_1.url} alt="news_section_image_1" />
                                                 <h2> {oneEl.acf.news_section_title_2} </h2>
-                                                <p> {oneEl.acf.news_section_text_2} </p>
+                                                <div className="text" dangerouslySetInnerHTML={{ __html: oneEl.acf.news_section_text_2 }} />
                                             </div>
-                                            <div>
+                                            <div className="image">
                                                 <img src={oneEl.acf.news_section_image_2.url} alt="news_section_image_2" />
                                             </div>
                                         </div>
@@ -118,10 +119,10 @@ class HomePage extends Component {
                             </section>
                             <section className="brand-section">
                                 <div className="brand-section-wrapper  container" >
-                                    <img src={oneEl.acf.brand_section_image_1.url} alt="brand_section_image1" />
-                                    <img src={oneEl.acf.brand_section_image_2.url} alt="brand_section_image2" />
-                                    <img src={oneEl.acf.brand_section_image_3.url} alt="brand_section_image3" />
-                                    <img src={oneEl.acf.brand_section_image_4.url} alt="brand_section_image4" />
+                                    <img src={oneEl.acf.brand_section_image_1.url} alt="brand_section_image1" height="40px" />
+                                    <img src={oneEl.acf.brand_section_image_2.url} alt="brand_section_image2" height="40px" />
+                                    <img src={oneEl.acf.brand_section_image_3.url} alt="brand_section_image3" height="32px" />
+                                    <img src={oneEl.acf.brand_section_image_4.url} alt="brand_section_image4" height="32px" />
                                 </div>
                             </section>
 
@@ -140,7 +141,7 @@ class HomePage extends Component {
                                 </div>
 
                                 <div className="image">
-                                    <img src={oneEl.acf.shop_section_image.url} alt={oneEl.acf.shop_section_image.alt} height="500px" />
+                                    <img src={oneEl.acf.shop_section_image.url} alt={oneEl.acf.shop_section_image.alt} height="600px" />
                                 </div>
 
                             </section>

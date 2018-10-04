@@ -8,7 +8,8 @@ class About extends Component {
         super(props);
 
         this.state = {
-            aboutData: []
+            aboutData: [],
+            isDataReceived: false,
         }
     }
 
@@ -17,18 +18,20 @@ class About extends Component {
         api.get("/about")
             .then(response => {
                 console.log("react response", response.data)
-                this.setState({ aboutData: response.data })
+                this.setState({ aboutData: response.data, isDataReceived: true })
             })
     }
 
     render() {
 
-        const { aboutData } = this.state;
+        const { aboutData, isDataReceived } = this.state;
 
 
         return (
-            <section className="about-page">
-
+            
+            <React.Fragment>
+            { isDataReceived ? 
+            (<section className="about-page">
                 {aboutData.map(oneData =>
                     <div key={oneData.id} className="about-wrapper">
                         <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})` }} className="head-banner">
@@ -63,7 +66,16 @@ class About extends Component {
 
                     </div>
                 )}
-            </section>
+            </section>)
+            : ( 
+                <section className="loading-page">
+                    <div className="container loading-box">
+                        <img src="./images/loader.png" />
+                        <p>Loading...</p>
+                    </div>
+                </section>
+            )} 
+            </React.Fragment>
         );
     }
 }

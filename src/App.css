@@ -68,8 +68,27 @@ h3 {
   background: #98e1b4;
 }
 
-.home-page {
+.home-page, .product-list-page, .about-page, .contact-page, .loading-page {
   flex-grow: 1;
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading-box {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-box img {
+  animation: loading-spin infinite 1s linear;
+  height: 150px;
+  margin-bottom: 25px;
 }
 
 /*------------------ Header ------------------*/
@@ -136,17 +155,18 @@ footer p {
 
 
 .news-section-top{
-  height: 600px;
+  height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #e5e5e5;
+  color: #fde7c4;
   background-color: #BB945E;
 }
 
 .news-container{
 max-width: 800px;
+padding-bottom: 50px;
 }
 
 .news-container .btn {
@@ -166,6 +186,12 @@ max-width: 800px;
   text-transform: uppercase;
 }
 
+.news-container img {
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+}
+
 .news-section-down{
   display: flex;
   justify-content: center;
@@ -173,12 +199,20 @@ max-width: 800px;
 }
 
 .news-section-down-wrapper{
-  margin-top: -8%;
+  margin-top: -9%;
   margin-bottom: 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   
+}
+
+.news-section-down-wrapper .text {
+  padding-right: 130px;
+}
+
+.news-section-down-wrapper .image {
+  margin-top: -50px;
 }
 
 .brand-section{
@@ -189,6 +223,7 @@ max-width: 800px;
 .brand-section-wrapper{
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
 }
 
 /*------------------ Tech section ------------------*/
@@ -199,7 +234,7 @@ max-width: 800px;
 }
 
 .tech-section-text {
-  max-width: 400px;
+  max-width: 685px;
   margin:auto;
   display: flex;
   flex-direction: column;
@@ -213,6 +248,7 @@ max-width: 800px;
 }
 
 /*------------------ About Page ------------------*/
+
 
 .our-misssion {
   margin-top: 70px;
@@ -254,14 +290,14 @@ form {
 }
 
 .shop-section .text {
-  height: 500px;
+  height: 600px;
   color: #e5e5e5;
   background: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-  padding-left: 70px;
+  padding-left: 90px;
 }
 
 .shop-section h2 {
@@ -269,8 +305,8 @@ form {
 }
 
 .map {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   filter: grayscale(75%);
 }
 
@@ -332,27 +368,11 @@ font-size: 2em;
 
 /*------------------ Product List Page ------------------*/
 
-.product-list-page {
-  min-height: 600px;
-}
-
-.loading {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loading img {
-  animation: loading-spin infinite 20s linear;
-  height: 100px;
-}
 
 
 .filter-list {
   display: flex;
   justify-content: center;
-  padding: 0;
 }
 
 .filter-item  {

@@ -32,6 +32,7 @@ class ProductListMen extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         //To retrieve products information and filter them to get only men products
         api.get("/products")
             .then(response => {
@@ -39,7 +40,7 @@ class ProductListMen extends React.Component {
                     return oneProduct.categories.includes(4);
                 });
                 this.productArrayCopy = [...filteredArray]
-                this.setState({ productArray: filteredArray });
+                this.setState({ productArray: filteredArray, isDataReceived: true });
             })
             .catch(err => {
                 console.log(err);
@@ -67,31 +68,31 @@ class ProductListMen extends React.Component {
             
             //Categories array retrieval for type categorie of the selected product
             if (dataset.filter === "type" && checked) {
-                selectedTypeCategories.push(parseInt(value));
+                selectedTypeCategories.push(parseInt(value, 10));
             } else if (dataset.filter === "type" && !checked) {
-                selectedTypeCategories = selectedTypeCategories.filter(oneValue => oneValue !== parseInt(value));
+                selectedTypeCategories = selectedTypeCategories.filter(oneValue => oneValue !== parseInt(value, 10));
                 this.setState({selectedTypeCategories: selectedTypeCategories});
             }
 
             //Categories array retrieval for color categorie of the selected product
             if (dataset.filter === "color" && checked) {
-                selectedColorCategories.push(parseInt(value));
+                selectedColorCategories.push(parseInt(value, 10));
             } else if (dataset.filter === "color" && !checked) {
-                selectedColorCategories = selectedColorCategories.filter(oneValue => oneValue !== parseInt(value));
+                selectedColorCategories = selectedColorCategories.filter(oneValue => oneValue !== parseInt(value, 10));
                 this.setState({selectedColorCategories});
             }
 
             //Categories array retrieval for shape categorie of the selected product
             if (dataset.filter === "shape" && checked) {
-                selectedShapeCategories.push(parseInt(value));
+                selectedShapeCategories.push(parseInt(value, 10));
             } else if (dataset.filter === "shape" && !checked) {
-                selectedShapeCategories = selectedShapeCategories.filter(oneValue => oneValue !== parseInt(value));
+                selectedShapeCategories = selectedShapeCategories.filter(oneValue => oneValue !== parseInt(value, 10));
                 this.setState({selectedShapeCategories});
             }
 
             //Categories array retrieval for shape categorie of the selected product
             if (dataset.filter === "material" && checked) {
-                selectedMaterialCategories.push(parseInt(value));
+                selectedMaterialCategories.push(parseInt(value, 10));
             } else if (dataset.filter === "material" && !checked) {
                 selectedMaterialCategories = selectedMaterialCategories.filter(oneValue => oneValue !== parseInt(value));
                 this.setState({selectedMaterialCategories});
@@ -177,7 +178,10 @@ class ProductListMen extends React.Component {
             </div>)}
 
         return (
-            <section className="product-list-page">
+            
+            <React.Fragment>
+            { isDataReceived ? 
+            (<section className="product-list-page">
                 {headBanner}
                 <div className="container">
                     <div className="filter-list">
@@ -361,7 +365,18 @@ class ProductListMen extends React.Component {
                     </div>
                     {productResult}
                 </div>
-            </section>
+                </section>) 
+            : ( 
+                <section className="loading-page">
+                    <div className="container loading-box">
+                    <img src="./images/loader.png" />
+                    <p>Loading...</p>
+                    </div>
+                </section>
+              ) 
+            } 
+            </React.Fragment>
+            
         );
 
     }
