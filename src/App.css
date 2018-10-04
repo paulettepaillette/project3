@@ -153,6 +153,17 @@ footer p {
 
 /* ------------------ Home Page ------------------- */
 
+.carousel-caption {
+  right: 58%;
+  padding-bottom: 300px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-caption h1 {
+  font-size: 3.5rem;
+}
+
 
 .news-section-top{
   height: 650px;
