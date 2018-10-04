@@ -187,8 +187,9 @@ class ProductListWomen extends React.Component {
                     <div className="filter-list">
 
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Type
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Type</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div className="dropdown-item">
@@ -221,8 +222,9 @@ class ProductListWomen extends React.Component {
 
 
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Color
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Color</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div className="dropdown-item">
@@ -277,8 +279,9 @@ class ProductListWomen extends React.Component {
                         </div>
                         
                         <div className="dropdown">
-                            <div className="filter-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Shape
+                            <div className="filter-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Shape</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div className="dropdown-item">
@@ -320,8 +323,9 @@ class ProductListWomen extends React.Component {
                             </div>
                         </div>
                         <div className="dropdown">
-                            <div className="filter-last-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Materials
+                            <div className="filter-last-item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p>Materials</p>
+                                <img src="/images/filter-arrow.svg" />
                             </div>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div className="dropdown-item">
