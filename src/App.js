@@ -49,7 +49,7 @@ class TheApp extends Component {
     api.delete("/logout")
       .then(() => {
         this.updateUser(null);
-        this.props.history.push("/account")
+        this.props.history.push("/")
       }
 
       )

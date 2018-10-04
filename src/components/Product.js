@@ -25,35 +25,34 @@ class Product extends React.Component {
         api.get(`/products/${params.productId}`)
             .then(response => {
                 console.log("inside didmount", response.data)
-                this.setState({ productData: response.data });
+                this.setState({ productData: response.data },()=>{
+                            api.get("/checklogin")
+                            .then(response => {
+                            // console.log("Check LOG IN 🤔", response.data);
+                            this.setState({currentUser : response.data.userDoc},()=>{
+                                
+                                let wishList =  this.state.currentUser.wishList;
+                                let id = this.state.productData.id;
+                                    if(wishList.includes(id.toString()))
+                                    {
+                                        this.setState({isInWishLIst: true})
+                                    }
+
+                            });
+                            console.log("current user:",this.state.currentUser);
+                            })
+                            .catch(err => {
+                            console.log(err);
+                            alert("Sorry! There was a problem. 💩");
+                            });
+                                    });
             })
             .catch(err => {
                 console.log(err);
                 alert("Sorry! Something went wrong!")
             });
              // check with the backend to see if we are already logged in
-        api.get("/checklogin")
-        .then(response => {
-          // console.log("Check LOG IN 🤔", response.data);
-          this.setState({currentUser : response.data.userDoc},()=>{
-              
-            //   let wishList =  this.state.currentUser.wishList;
-            //   console.log(wishList);
-            //   let id = this.state.productData.id;
-            //   console.log(id);
-            //     if(wishList.includes(id))
-            //     {
-            //         console.log("yes it is")
-            //         this.setState({isInWishLIst: true})
-            //     }
-
-          });
-          console.log("current user:",this.state.currentUser);
-        })
-        .catch(err => {
-          console.log(err);
-          alert("Sorry! There was a problem. 💩");
-        });
+        
     }
 
     addToWishlist(){
@@ -63,6 +62,17 @@ class Product extends React.Component {
         api.post("/add-to-wish-list", {userId, productId })
             .then(() => {
             this.setState({isInWishLIst: true});
+            }
+            )
+            .catch(err => console.log(err))
+    }
+    removeFromWishlist(){
+        const userId = this.state.currentUser._id;
+        const productId = this.state.productData.id;
+
+        api.post("/remove-from-wish-list", {userId, productId })
+            .then(() => {
+            this.setState({isInWishLIst: false});
             }
             )
             .catch(err => console.log(err))
@@ -85,9 +95,11 @@ class Product extends React.Component {
                         <div>
                             <h1>{productData.acf.product_title}</h1>
                             <p>{productData.acf.price} €</p>
+                            {isInWishLIst?
+                            <i className="fas fa-heart" onClick={()=>this.removeFromWishlist()} >  </i>: 
+                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i>
                             
-                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i> 
-                            {/* <button  onClick={()=>this.addToWishlist()} > </button> */}
+                                }
                         </div>
                     </div>
                     

@@ -1,43 +1,49 @@
 import React, { Component } from 'react';
 
+import api from "../api";
 
 class WishList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tablewishList: []
+            wishListArray: []
         }
     }
 
     componentDidMount() {
         const { currentUser } = this.props;
-        let tablewishList = [];
-        // let array = currentUser.wishList;
-        // console.log(currentUser.wishList);
-        // tablewishList.push(currentUser.wishList);
-        // tablewishList = [...array];
-        console.log("inside mount:", currentUser.wishList)
+        const wishListArray = currentUser.wishList;
 
-        this.setState({ tablewishList: tablewishList })
+        api.put("/wish-list-products", {wishListArray} )
+          .then(response => {
+            // console.log("wishlistarray response:",response)
+            this.setState({ wishListArray: response.data })
+            })
+          
+          .catch(err => {
+            console.log(err);
+            alert("Sorry! Something went wrong. 💩");
+          });
+
+
+        // 
     }
 
     render() {
 
-        const { tablewishList } = this.state;
-        console.log("outside table:", tablewishList);
+        const { wishListArray } = this.state;
+        // console.log("outside table:", wishListArray);
 
         return (
             <div>
                 <table className="table">
                     <thead></thead>
                     <tbody>
-                        <tr>
-                            <td>Hello from wishlist </td>
-                        </tr>
-                        {tablewishList.map((oneProduct, index) => {
+                        {wishListArray.map((oneProduct, index) => {
                             return (
-                                <tr>
-                                    <td> {oneProduct}</td>
+                                <tr key={index}>
+                                    <td> {oneProduct.id}</td>
+                                    <td> <img width="100px" src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_image.alt}/> </td>
                                 </tr>
                             )
                         })}
