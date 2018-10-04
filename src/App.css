@@ -1,3 +1,24 @@
+/*------------------ colors ------------------*/
+/*
+marron clair : #CFA86B
+marron foncé : #BB945
+
+*/
+
+
+/*------------------ Fonts ------------------*/
+
+@font-face {
+  font-family: 'Playlist-Script';
+  src:url('./fonts/Playlist-Script.ttf.woff') format('woff'),
+      url('./fonts/Playlist-Script.ttf.svg#Playlist-Script') format('svg'),
+      url('./fonts/Playlist-Script.ttf.eot'),
+      url('./fonts/Playlist-Script.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /*------------------ General ------------------*/
 
 body {
@@ -53,6 +74,7 @@ h3 {
   color: #fff;
   border: 1px solid #000;
   border-radius: 0;
+  transition: all 0.5s;
 }
 
 .btn:hover {
@@ -109,18 +131,26 @@ header {
 }
 
 header h1 {
+  font-family: 'Playlist-Script';
   font-size: 2.5rem;
   transition: all 0.7s;
 }
 
 header a {
+  color: #323232;
   float: left;
   padding: 17px 30px;
 }
 
+header a:hover {
+  color: #323232;
+  text-decoration: none;
+}
+
 nav {
   float: right;
-  padding: 24px;
+  padding: 29px 24px 24px 24px;
+  transition: all 0.7s;
 }
 
 nav a {
@@ -135,6 +165,10 @@ nav a {
 .sticky h1 {
   color: #fff;
   font-size: 2.1rem;
+}
+
+.sticky nav {
+  padding: 24px;
 }
 
 .sticky nav a {
@@ -159,6 +193,45 @@ footer p {
 
 /* ------------------ Home Page ------------------- */
 
+.carousel-caption {
+  right: 63%;
+  left: 10%;
+  padding-bottom: 300px;
+  color: #323232;
+  text-align: left;
+  line-height: 1.7rem;
+}
+
+.carousel-caption h1 {
+  font-size: 3.5rem;
+  line-height: 3.2rem;
+  color: #323232;
+  margin-bottom: 30px;
+}
+
+.carousel-caption .btn {
+  margin-top: 22px;
+}
+
+.carousel-caption .btn:hover {
+  background: transparent;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width: 8%;
+}
+
+/* #carouselExampleControls > div > div.carousel-item.active > div,
+#carouselExampleControls > div > div.carousel-item.active > div h1
+{
+  color: #fff;
+}
+
+#carouselExampleControls > div > div.carousel-item.active > div > a {
+  color: #fff;
+  border: 1px solid #fff;
+  background: transparent;
+} */
 
 .news-section-top{
   height: 650px;
