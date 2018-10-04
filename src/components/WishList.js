@@ -6,7 +6,8 @@ class WishList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            wishListArray: []
+            wishListArray: [],
+            isDataReceived: false
         }
     }
 
@@ -17,7 +18,7 @@ class WishList extends Component {
         api.put("/wish-list-products", {wishListArray} )
           .then(response => {
             // console.log("wishlistarray response:",response)
-            this.setState({ wishListArray: response.data })
+            this.setState({ wishListArray: response.data , isDataReceived: true })
             })
           
           .catch(err => {
@@ -31,10 +32,14 @@ class WishList extends Component {
 
     render() {
 
-        const { wishListArray } = this.state;
+        const { wishListArray, isDataReceived } = this.state;
         // console.log("outside table:", wishListArray);
 
         return (
+
+            <React.Fragment>
+          { isDataReceived ? 
+         (
             <div>
                 <table className="table">
                     <thead></thead>
@@ -42,14 +47,23 @@ class WishList extends Component {
                         {wishListArray.map((oneProduct, index) => {
                             return (
                                 <tr key={index}>
-                                    <td> {oneProduct.id}</td>
+                                    <td> {oneProduct.title.rendered}</td>
                                     <td> <img width="100px" src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_image.alt}/> </td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
-            </div>
+            </div>):( 
+                <section className="loading-page">
+                    <div className="container loading-box">
+                        <img src="../images/loader.png" />
+                        <p>Loading...</p>
+                    </div>
+                </section>
+            )} 
+
+            </React.Fragment>
         );
     }
 }

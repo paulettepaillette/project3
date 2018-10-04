@@ -13,6 +13,8 @@ class MemberSpace extends Component {
         super(props);
         this.state = {
             currentUser: "hello",
+            headBannerData:[],
+            isDataReceived: false,
         }
     }
 
@@ -27,6 +29,20 @@ class MemberSpace extends Component {
             console.log(err);
             alert("Sorry! There was a problem. 💩");
           });
+
+          
+          api.get("/member-space")
+            .then(response => {
+                console.log("react category response", response.data)
+                this.setState({ headBannerData: response.data, isDataReceived: true })
+            })
+            .catch(err => {
+                console.log(err);
+                alert("Sorry! Something went wrong!")
+            });
+
+
+
       }
 
       changeState(){
@@ -48,16 +64,26 @@ class MemberSpace extends Component {
     
     render() { 
         // console.log(this.props)
-        const {currentUser} = this.state;
+        const {currentUser, headBannerData, isDataReceived} = this.state;
         // console.log("this is current name", currentUser);
         const {match} = this.props;
+
+        const headBanner = headBannerData.map(oneData => {
+          const backgroundStyle = { backgroundImage: `url(${oneData.acf.head_banner.url})`};
+          return  <div key= {oneData.id} style={backgroundStyle} className="head-banner">
+                      {/* <h1>{oneData.acf.head_banner_title}</h1> */}
+                  </div>
+      });
         
         return ( 
         
-            
+          <React.Fragment>
+          { isDataReceived ? 
+         (
             <div className="member-space-page" >
-              <div className="head-banner">   
-              </div>
+              {/* <div className="head-banner">   
+              </div> */}
+              {headBanner}
               
               <div className="member-space-section">
                 <div className="container" >
@@ -90,7 +116,16 @@ class MemberSpace extends Component {
                 </div>
                 
               </div>
-            </div>
+            </div>):( 
+                <section className="loading-page">
+                    <div className="container loading-box">
+                        <img src="./images/loader.png" />
+                        <p>Loading...</p>
+                    </div>
+                </section>
+            )} 
+
+            </React.Fragment>
 
        
        

@@ -490,3 +490,14 @@ justify-content: space-around;
   border: 1px solid rgb(224, 224, 224);
   padding: 100px;
 }
+
+/* ------------------------- React Transitions--------------- */
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 
 import api from "../api"
 
@@ -39,14 +40,21 @@ class About extends Component {
                         </div>
 
                         <div className="container">
-
-                            <div className="our-misssion">
-                                <img src={oneData.acf.our_mission_image.url} height="600px" />
-                                <div className="text">
-                                    <h2>{oneData.acf.our_mission_title}</h2>
-                                    <p>{oneData.acf.our_mission_text}</p>
-                                </div>
-                            </div>
+                            <ReactCSSTransitionGroup
+                                transitionName="example"
+                                transitionAppear={true}
+                                transitionAppearTimeout={500}
+                                transitionEnter={false}
+                                transitionLeave={false}>
+                                    <div className="our-misssion">
+                                        <img src={oneData.acf.our_mission_image.url} height="600px" />
+                                        <div className="text">
+                                            
+                                                <h2>{oneData.acf.our_mission_title}</h2>
+                                                <p>{oneData.acf.our_mission_text}</p>
+                                        </div>
+                                    </div>
+                                </ReactCSSTransitionGroup>
 
                             <div className="our-technology">
                                 <div className="text">
