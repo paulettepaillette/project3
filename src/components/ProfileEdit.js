@@ -53,20 +53,26 @@ class ProfileEdit extends Component {
         // PUT and POST requests receive a 2nd argument: the data to submit
         // (here we are submitting the state we've gathered in the form)
         api.put("/edit-user", this.state)
-          .then(response => {
-            console.log("Phone PUT", response.data);
+          .then(() => {
+            const {changeState} = this.props;
+            changeState();
             this.setState({ isSubmitSuccess: true });
-          })
+            })
+          
           .catch(err => {
             console.log(err);
             alert("Sorry! Something went wrong. 💩");
           });
+
+         
+
       }
 
     render() { 
 
         const { fullName, email, originalPassword, loginEmail, loginOriginalPassword, contactData, isSubmitSuccess } = this.state;
         const {currentUser} = this.props;
+        
 
         if (isSubmitSuccess) {
             
@@ -92,14 +98,6 @@ class ProfileEdit extends Component {
                             onChange={event => this.updateEmail(event)}  
                             value={email} placeholder="your email" />
                             </label>
-                            <label >
-                                Password
-                                 <input type="password" 
-                                 className="form-control"
-                                onChange={event => this.updatePassword(event)} 
-                                value={originalPassword} placeholder="your password"/>
-                            </label>
-                            <br/>
                             <button type="submit" className="btn btn-primary" >Change</button>
                         </form>
 

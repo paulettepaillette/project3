@@ -16,7 +16,6 @@ class Accout extends Component {
             loginOriginalPassword: "",
             contactData: [],
 
-            
         }
     }
     updateName(event){

@@ -28,6 +28,23 @@ class MemberSpace extends Component {
             alert("Sorry! There was a problem. 💩");
           });
       }
+
+      changeState(){
+        api.get("/checklogin")
+          .then(response => {
+            // console.log("Check LOG IN from changestate🤔", response.data);
+            this.setState({currentUser : response.data.userDoc},()=>{
+                this.setState({fullName: response.data.userDoc.fullName,
+                    email: response.data.userDoc.email,
+                    originalPassword: response.data.userDoc.originalPassword,
+                })
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            alert("Sorry! There was a problem. 💩");
+          });
+      }
     
     render() { 
         // console.log(this.props)
@@ -64,7 +81,7 @@ class MemberSpace extends Component {
                       <Route  path={`${match.url}/wish-list`}
                       render={()=> <WishList currentUser={currentUser} /> } />
                       <Route  path={`${match.url}/edit-profile`}
-                      render={()=> <ProfileEdit currentUser={currentUser} /> } />
+                      render={()=> <ProfileEdit changeState={()=>this.changeState()}  currentUser={currentUser} /> } />
                       <Route 
                       render={()=> <h1>Morning sir</h1> } />
                       </Switch>
