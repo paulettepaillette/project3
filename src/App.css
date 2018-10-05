@@ -107,15 +107,27 @@ h3 {
   align-items: center;
 }
 
-.loading-box img {
-  animation: loading-spin infinite 1s linear;
-  height: 150px;
-  margin-bottom: 25px;
+.loading-box h1 {
+  font-family: 'Playlist-Script';
+  position: relative;
+  color: rgba(0, 0, 0, .3);
+  font-size: 5em
 }
 
-@keyframes loading-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.loading-box h1:before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  max-width: 8em;
+  white-space: nowrap;
+  color: #000;
+  animation: loading 3s linear;
+}
+
+@keyframes loading {
+  0% {
+      max-width: 0;
+  }
 }
 
 
@@ -178,11 +190,16 @@ nav a {
 /*------------------ Footer ------------------*/
 
 footer {
-  height: 70px;
+  height: 42px;
   display: flex;
   align-items: center;
-  color: white;
-  background: darkgray; 
+  padding: 0 20px;
+  color: #000;
+  justify-content: flex-end;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background: transparent;
+  margin-top: -43px;
 }
 
 footer p {
@@ -454,9 +471,15 @@ form {
   max-width: 350px;
 }
 
+.product-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .fa-heart{
 cursor: pointer;
-color: blue;
+color: #BB945E;
 font-size: 2em;
 }
 
@@ -578,6 +601,10 @@ font-size: 2em;
   height: 600px;
 }
 
+.account-section-wrapper h2{
+    margin: 0px 0 45px 0;
+}
+
 
 .log-in {
   border-left: 1px solid rgb(224, 224, 224);
@@ -599,6 +626,10 @@ font-size: 2em;
   flex-direction: column;
 }
 
+.form-control:focus {
+  border-color: #CFA86B;
+  box-shadow: 0 0 0 0.2rem rgba(218, 125, 64, 0.25);
+}
 
 
 /* ----------------------Member-Space-section--------------------------- */
