@@ -565,14 +565,26 @@ font-size: 2em;
 
 
 .log-in {
-  border-left: 1px solid blue;
-  padding-left: 200px;
+  border-left: 1px solid rgb(224, 224, 224);
+  padding-left: 100px;
   height: 300px;
 }
+.log-in form{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .account-section-wrapper{
   margin-top: 200px;
 }
+
+.sign-up form{
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 /* ----------------------Member-Space-section--------------------------- */
 
@@ -591,11 +603,13 @@ justify-content: space-around;
   width: 350px;
 }
 .choosen-component{
+  max-height: 90vh; 
+  overflow: scroll;
   width: 700px;
-  height: 400px;
+  height: 600px;
   flex-grow: 1;
   border: 1px solid rgb(224, 224, 224);
-  padding: 100px;
+  padding: 50px;
 }
 
 /* ------------------------- React Transitions--------------- */
@@ -606,5 +620,5 @@ justify-content: space-around;
 
 .example-appear.example-appear-active {
   opacity: 1;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s ease-in;
 }

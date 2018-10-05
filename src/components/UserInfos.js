@@ -5,7 +5,9 @@ const UserInfo = (props) => {
   // console.log("from user info",props)
     return ( 
         <div>
-                    <p>Hello  {currentUser.fullName}</p>
+                    <h2>Hello {currentUser.fullName} !  </h2>
+                    <h3>Good to see you again</h3>
+                    <br/>
                     <table className="table">
                       <thead></thead>
                       <tbody>
@@ -16,15 +18,6 @@ const UserInfo = (props) => {
                         <tr>
                           <td>Email</td>
                           <td> {currentUser.email}</td>
-                        </tr>
-                        <tr>
-                          <td>Param</td>
-                          <td>
-                            <ul>
-                              <li>One param</li>
-                              
-                            </ul>
-                          </td>
                         </tr>
                       </tbody>
                     </table>

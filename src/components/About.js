@@ -32,7 +32,14 @@ class About extends Component {
 
             <React.Fragment>
                 {isDataReceived ?
-                    (<section className="about-page">
+                    (   <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={false}
+                        transitionLeave={false}>
+                         
+                    <section className="about-page">
                         {aboutData.map(oneData =>
                             <div key={oneData.id} className="about-wrapper">
                                 <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})` }} className="head-banner">
@@ -40,12 +47,7 @@ class About extends Component {
                                 </div>
 
                                 <div className="container">
-                                    <ReactCSSTransitionGroup
-                                        transitionName="example"
-                                        transitionAppear={true}
-                                        transitionAppearTimeout={500}
-                                        transitionEnter={false}
-                                        transitionLeave={false}>
+                                    
                                         <div className="our-misssion">
                                             <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} height="600px" />
                                             <div className="text">
@@ -54,7 +56,7 @@ class About extends Component {
                                                 <p>{oneData.acf.our_mission_text}</p>
                                             </div>
                                         </div>
-                                    </ReactCSSTransitionGroup>
+                                   
 
                                     <div className="our-technology">
                                         <div className="text">
@@ -74,7 +76,8 @@ class About extends Component {
 
                             </div>
                         )}
-                    </section>)
+                    </section>
+                    </ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">
