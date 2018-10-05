@@ -1,6 +1,11 @@
 import React from 'react';
 import api from "../api.js";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+
+
+
+
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Product extends React.Component {
     constructor(props) {
@@ -17,7 +22,9 @@ class Product extends React.Component {
             currentUser: { 
                 wishList: [],
             },
-            isInWishLIst: false
+            isInWishLIst: false,
+            isDataReceived: false,
+            redirection: false
         };
     }
 
@@ -27,7 +34,7 @@ class Product extends React.Component {
         api.get(`/products/${params.productId}`)
             .then(response => {
                 console.log("inside didmount", response.data)
-                this.setState({ productData: response.data },()=>{
+                this.setState({ productData: response.data, isDataReceived: true },()=>{
                             api.get("/checklogin")
                             .then(response => {
                             // console.log("Check LOG IN 🤔", response.data);
@@ -59,6 +66,11 @@ class Product extends React.Component {
              // check with the backend to see if we are already logged in
         
     }
+    redirectToAccount(){
+        this.setState({redirection: true})
+
+    }
+
 
     addToWishlist() {
         const userId = this.state.currentUser._id;
@@ -84,14 +96,30 @@ class Product extends React.Component {
     }
 
     render() {
-        const { productData, isInWishLIst, currentUser } = this.state;
+        const { productData, isInWishLIst, currentUser, isDataReceived, redirection } = this.state;
         console.log("this is it", productData);
         console.log("is it in wish list ?", isInWishLIst)
 
         // console.log("this is it", productData);
         const backgroundStyle = { backgroundImage: `url(${productData.acf.image_banner.url})` };
 
+        if(redirection){
+            return (
+                <Redirect to='/account'  />
+            )
+        }
+
+
+
         return (
+            <React.Fragment>
+            {isDataReceived ?
+                (   <ReactCSSTransitionGroup
+                    transitionName="example"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={false}
+                    transitionLeave={false}>
             <section className="product-details">
                 <div style={backgroundStyle} className="head-banner"></div>
                 <div className="product-section">
@@ -100,10 +128,10 @@ class Product extends React.Component {
                         <div>
                             <h1>{productData.acf.product_title}</h1>
                             <p>{productData.acf.price} €</p>
-                            {currentUser && (isInWishLIst?
+                            {currentUser ? (isInWishLIst?
                             <i className="fas fa-heart" onClick={()=>this.removeFromWishlist()} >  </i>: 
-                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i>)
-                            
+                            <i className="far fa-heart" onClick={()=>this.addToWishlist()} >  </i>):
+                            (<i className="far fa-heart" onClick={()=>this.redirectToAccount()} ></i>)
                                 }
                         </div>
                     </div>
@@ -128,7 +156,16 @@ class Product extends React.Component {
                     </div>
                     <img src={productData.acf.tech_section_image.url} />
                 </div>
-            </section>
+            </section></ReactCSSTransitionGroup>)
+                    : (
+                        <section className="loading-page">
+                            <div className="container loading-box">
+                                <img src="../images/loader.png" alt="loader" />
+                                <p>Loading...</p>
+                            </div>
+                        </section>
+                    )}
+            </React.Fragment>
         );
 
     }

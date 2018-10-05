@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import  { Redirect } from 'react-router-dom'
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 import api from "../api.js"
 
 class Accout extends Component {
@@ -117,8 +119,15 @@ class Accout extends Component {
 
 
             <React.Fragment>
-            { isDataReceived ? 
-           ( <section className="account-section">
+            { 
+                isDataReceived ? 
+           ( <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+            transitionLeave={false}> 
+           <section className="account-section">
                 {/* <div className="head-banner">   
                 </div> */}
                 {headBanner}
@@ -131,21 +140,21 @@ class Accout extends Component {
                                 <input type="text" 
                                 className="form-control"
                                 onChange={event => this.updateName(event)}  
-                                value={fullName} placeholder="hey you" />
+                                value={fullName} placeholder="Your name" />
                             </label>
                             <label >
                             Email
                             <input type="email" 
                             className="form-control"
                             onChange={event => this.updateEmail(event)}  
-                            value={email} placeholder="your email" />
+                            value={email} placeholder="Your email" />
                             </label>
                             <label >
                                 Password
                                  <input type="password" 
                                  className="form-control"
                                 onChange={event => this.updatePassword(event)} 
-                                value={originalPassword} placeholder="your password"/>
+                                value={originalPassword} placeholder="Your password"/>
                             </label>
                             <br/>
                             <button type="submit" className="btn btn-primary" >Sign Up</button>
@@ -160,21 +169,22 @@ class Accout extends Component {
                             <input type="email"
                             className="form-control" 
                             onChange={event => this.updateLoginEmail(event)}  
-                            value={loginEmail} placeholder="your email" />
+                            value={loginEmail} placeholder="Your email" />
                             </label>
                             <label >
                                 Password
                                 <input type="password" 
                                 className="form-control"
                                 onChange={event => this.updateLoginPassword(event)} 
-                                value={loginOriginalPassword} placeholder="your password"/>
+                                value={loginOriginalPassword} placeholder="Your password"/>
                             </label>
                             <br/>
                             <button type="submit" className="btn btn-primary" >Login</button>
                         </form>
                     </div>
                 </div>
-            </section>):( 
+            </section>
+            </ReactCSSTransitionGroup>):( 
                 <section className="loading-page">
                     <div className="container loading-box">
                         <img src="./images/loader.png" />

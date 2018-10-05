@@ -196,7 +196,7 @@ footer p {
 .carousel-caption {
   right: 63%;
   left: 10%;
-  padding-bottom: 300px;
+  padding-bottom: 10%;
   color: #323232;
   text-align: left;
   line-height: 1.7rem;
@@ -221,17 +221,21 @@ footer p {
   width: 8%;
 }
 
-/* #carouselExampleControls > div > div.carousel-item.active > div,
-#carouselExampleControls > div > div.carousel-item.active > div h1
-{
+#slider-light-text, #slider-light-text h1 {
   color: #fff;
 }
 
-#carouselExampleControls > div > div.carousel-item.active > div > a {
+#slider-light-text .btn {
+  color: #000;
+  border: 1px solid #fff;
+  background: white;
+}
+
+#slider-light-text .btn:hover {
   color: #fff;
   border: 1px solid #fff;
   background: transparent;
-} */
+}
 
 .news-section-top{
   height: 650px;
@@ -328,6 +332,9 @@ padding-bottom: 50px;
 
 /*------------------ About Page ------------------*/
 
+.about-page h1 {
+  color: #323232;
+}
 
 .our-misssion {
   margin-top: 70px;
@@ -351,6 +358,10 @@ padding-bottom: 50px;
 
 
 /*------------------ Contact Page ------------------*/
+
+.contact-page h1 {
+  color: #323232;
+}
 
 .form-section {
   display: flex;
@@ -569,14 +580,26 @@ font-size: 2em;
 
 
 .log-in {
-  border-left: 1px solid blue;
-  padding-left: 200px;
+  border-left: 1px solid rgb(224, 224, 224);
+  padding-left: 100px;
   height: 300px;
 }
+.log-in form{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .account-section-wrapper{
   margin-top: 200px;
 }
+
+.sign-up form{
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 /* ----------------------Member-Space-section--------------------------- */
 
@@ -595,11 +618,13 @@ justify-content: space-around;
   width: 350px;
 }
 .choosen-component{
+  max-height: 90vh; 
+  overflow: scroll;
   width: 700px;
-  height: 400px;
+  height: 600px;
   flex-grow: 1;
   border: 1px solid rgb(224, 224, 224);
-  padding: 100px;
+  padding: 50px;
 }
 
 /* ------------------------- React Transitions--------------- */
@@ -610,5 +635,5 @@ justify-content: space-around;
 
 .example-appear.example-appear-active {
   opacity: 1;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s ease-in;
 }

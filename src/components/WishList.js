@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from "react-router-dom";
+
 import api from "../api";
 
 class WishList extends Component {
@@ -41,14 +43,22 @@ class WishList extends Component {
           { isDataReceived ? 
          (
             <div>
+                        <h3>Your wish list</h3>
+                        <br/>
                 <table className="table">
-                    <thead></thead>
+                    <thead>
+                    </thead>
                     <tbody>
                         {wishListArray.map((oneProduct, index) => {
                             return (
                                 <tr key={index}>
-                                    <td> {oneProduct.title.rendered}</td>
-                                    <td> <img width="100px" src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_image.alt}/> </td>
+                                    <td>
+                                        <Link to={`/products/${oneProduct.id}`} key={oneProduct.id}>
+                                        <p style={{textAlign: "center"}} > {oneProduct.title.rendered}</p>
+                                        </Link>
+                                    </td>
+                                    <td style={{textAlign: "center"}} > {oneProduct.acf.price} $ </td>
+                                    <td style={{textAlign: "center"}}> <img width="100px" src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_image.alt}/> </td>
                                 </tr>
                             )
                         })}

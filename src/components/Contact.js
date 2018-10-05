@@ -4,6 +4,7 @@ import SimpleMap from './SimpleMap';
 
 import api from "../api";
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Contact extends Component {
     constructor(props) {
@@ -63,7 +64,13 @@ class Contact extends Component {
 
             <React.Fragment>
                 {isDataReceived ?
-                    (<section className="contact-page">
+                    (<ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={false}
+                        transitionLeave={false}>
+                    <section className="contact-page">
 
                         {contactData.map(oneData =>
                             <div key={oneData.id} className="contact-wrapper">
@@ -149,7 +156,8 @@ class Contact extends Component {
 
                             </div>
                         )}
-                    </section>)
+                    </section>
+                    </ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">

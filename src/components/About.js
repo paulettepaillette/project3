@@ -32,7 +32,14 @@ class About extends Component {
 
             <React.Fragment>
                 {isDataReceived ?
-                    (<section className="about-page">
+                    (   <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={false}
+                        transitionLeave={false}>
+                         
+                    <section className="about-page">
                         {aboutData.map(oneData =>
                             <div key={oneData.id} className="about-wrapper">
                                 <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})` }} className="head-banner">
@@ -40,28 +47,23 @@ class About extends Component {
                                 </div>
 
                                 <div className="container">
-                                    <ReactCSSTransitionGroup
-                                        transitionName="example"
-                                        transitionAppear={true}
-                                        transitionAppearTimeout={500}
-                                        transitionEnter={false}
-                                        transitionLeave={false}>
+                                    
                                         <div className="our-misssion">
-                                            <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} height="600px" />
+                                            <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} />
                                             <div className="text">
 
                                                 <h2>{oneData.acf.our_mission_title}</h2>
-                                                <p>{oneData.acf.our_mission_text}</p>
+                                                <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_mission_text }} />
                                             </div>
                                         </div>
-                                    </ReactCSSTransitionGroup>
+                                   
 
                                     <div className="our-technology">
                                         <div className="text">
                                             <h2>{oneData.acf.our_technology_title}</h2>
-                                            <p>{oneData.acf.our_technology_text}</p>
+                                            <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
                                         </div>
-                                        <img src={oneData.acf.our_technology_image.url} height="600px" alt={oneData.acf.our_technology_image.alt} />
+                                        <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
                                     </div>
 
                                     <div className="video">
@@ -74,7 +76,8 @@ class About extends Component {
 
                             </div>
                         )}
-                    </section>)
+                    </section>
+                    </ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">

@@ -91,16 +91,16 @@ class MemberSpace extends Component {
                     <div className="list-of-choice" >
                       <div className="list-group">
                         {/* <a class="list-group-item list-group-item-action" href="/user-info">Infos</a> */}
-                        <Link className="list-group-item list-group-item-action" to={`${match.url}/user-info`} > Infos </Link>
-                        <Link className="list-group-item list-group-item-action" to={`${match.url}/orders`} > Orders </Link>
-                        <Link className="list-group-item list-group-item-action" to={`${match.url}/wish-list`} > WishLIst </Link>
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}`} > Infos </Link>
                         <Link className="list-group-item list-group-item-action" to={`${match.url}/edit-profile`} > Edit Your Profile </Link>
+                        <Link className="list-group-item list-group-item-action" to={`${match.url}/wish-list`} > WishList </Link>
+                        {/* <Link className="list-group-item list-group-item-action" to={`${match.url}/orders`} > Orders </Link> */}
                         
                       </div>
                     </div>
                     <div className="choosen-component" >
                       <Switch>
-                      <Route  exact path={`${match.url}/user-info`}
+                      <Route  exact path={`${match.url}`}
                       render={()=> <UserInfo currentUser={currentUser} /> } />
                       <Route  path={`${match.url}/orders`}
                       render={()=> <Orders currentUser={currentUser} /> } />

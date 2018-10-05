@@ -76,31 +76,32 @@ class ProfileEdit extends Component {
 
         if (isSubmitSuccess) {
             
-            return <Redirect to="/member-space/user-info" />
+            return <Redirect to="/member-space" />
           }
 
 
         return ( 
 
             <div>
-            <form onSubmit={event=>this.handleSubmit(event)} >
-                            <label >
-                                Full name
-                                <input type="text" 
+                <h3>Edit your profile :</h3>
+                <br/>
+                <form onSubmit={event=>this.handleSubmit(event)} >
+                                <label >
+                                    Full name
+                                    <input type="text" 
+                                    className="form-control"
+                                    onChange={event => this.updateName(event)}  
+                                    value={fullName} placeholder="hey you" />
+                                </label>
+                                <label >
+                                Email
+                                <input type="email" 
                                 className="form-control"
-                                onChange={event => this.updateName(event)}  
-                                value={fullName} placeholder="hey you" />
-                            </label>
-                            <label >
-                            Email
-                            <input type="email" 
-                            className="form-control"
-                            onChange={event => this.updateEmail(event)}  
-                            value={email} placeholder="your email" />
-                            </label>
-                            <button type="submit" className="btn btn-primary" >Change</button>
-                        </form>
-
+                                onChange={event => this.updateEmail(event)}  
+                                value={email} placeholder="your email" />
+                                </label>
+                                <button type="submit" className="btn btn-primary" >Change</button>
+                            </form>
             </div>
          );
     }

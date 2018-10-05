@@ -2,7 +2,7 @@ import React from 'react';
 import api from "../api.js";
 import { Link } from "react-router-dom";
 
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ProductListWomen extends React.Component {
     constructor(props) {
@@ -190,7 +190,14 @@ class ProductListWomen extends React.Component {
         <React.Fragment>
              
         { isDataReceived ? 
-            ( <section className="product-list-page">
+            ( 
+                <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}>
+            <section className="product-list-page">
                 {headBanner}
                 <div className="container">
                     <div className="filter-list">
@@ -378,7 +385,7 @@ class ProductListWomen extends React.Component {
                     </div>
                  {productResult}
                 </div>
-            </section> ) 
+            </section></ReactCSSTransitionGroup> ) 
         : ( 
             <section className="loading-page">
                 <div className="container loading-box">
