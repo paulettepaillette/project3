@@ -17,6 +17,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         api.get("/home-page")
             .then(response => {
                 // console.log("react response", response.data)

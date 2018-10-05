@@ -15,6 +15,7 @@ class About extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
         api.get("/about")
             .then(response => {

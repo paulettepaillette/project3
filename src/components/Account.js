@@ -75,7 +75,7 @@ class Accout extends Component {
     }
 
     componentDidMount() {
-
+        window.scrollTo(0, 0);
         // api.get("/contact")
         //     .then(response => {
         //         console.log("react response", response.data)
