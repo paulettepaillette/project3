@@ -19,6 +19,7 @@ class MemberSpace extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     // check with the backend to see if we are already logged in
     api.get("/checklogin")
       .then(response => {

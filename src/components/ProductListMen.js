@@ -13,9 +13,9 @@ class ProductListMen extends React.Component {
             headBannerData: [],
             optical: false,
             sun: false,
-            blue: false,
-            green: false,
-            purple: false,
+            black: false,
+            brown: false,
+            white:false,
             grey: false,
             metal: false,
             plastic: false,
@@ -64,8 +64,8 @@ class ProductListMen extends React.Component {
         const { name, checked, value, dataset } = event.target;
         this.setState({ [name]: checked }, () => {
             let { selectedTypeCategories, selectedColorCategories, selectedShapeCategories, selectedMaterialCategories } = this.state;
-            let { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
-
+            let { optical, sun, black, brown, white, grey, oval, round, square, metal, plastic, steel } = this.state;
+            
             //Categories array retrieval for type categorie of the selected product
             if (dataset.filter === "type" && checked) {
                 selectedTypeCategories.push(parseInt(value, 10));
@@ -109,8 +109,8 @@ class ProductListMen extends React.Component {
             }
 
             //Filter the products if a colour category is selected with the array retrieved above
-            if (blue || green || purple || grey) {
-                newProductArray = newProductArray.filter(oneProduct => {
+            if (black || brown || white || grey) {
+                newProductArray = newProductArray.filter( oneProduct => {
                     return selectedColorCategories.some(oneCat => oneProduct.categories.includes(oneCat))
                 })
             }
@@ -147,7 +147,7 @@ class ProductListMen extends React.Component {
 
 
     render() {
-        const { optical, sun, blue, green, purple, grey, oval, round, square, metal, plastic, steel } = this.state;
+        const { optical, sun, black, brown, white, grey, oval, round, square, metal, plastic, steel } = this.state;
         const { productArray, headBannerData, isDataReceived } = this.state;
 
 
@@ -221,7 +221,7 @@ class ProductListMen extends React.Component {
                                                         name="optical"
                                                         data-filter="type" />
                                                     Optical
-                                </label>
+                                                </label>
 
 
                                                 <label className={`dropdown-item ${this.filterClass(sun)}`}>
@@ -246,29 +246,29 @@ class ProductListMen extends React.Component {
                                                 <img src="/images/filter-arrow.svg" />
                                             </div>
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <label className={`dropdown-item ${this.filterClass(blue)}`}>
+                                                <label className={`dropdown-item ${this.filterClass(black)}`}>
                                                     <input
                                                         className="filter-input"
                                                         type="checkbox"
                                                         value="7"
                                                         onChange={event => this.handleEvent(event)}
-                                                        checked={blue}
-                                                        name="blue"
+                                                        checked={black}
+                                                        name="black"
                                                         data-filter="color"
                                                     />
-                                                    Blue
+                                                    Black
                                 </label>
-                                                <label className={`dropdown-item ${this.filterClass(green)}`}>
+                                                <label className={`dropdown-item ${this.filterClass(brown)}`}>
                                                     <input
                                                         className="filter-input"
                                                         type="checkbox"
                                                         value="9"
                                                         onChange={event => this.handleEvent(event)}
-                                                        checked={green}
-                                                        name="green"
+                                                        checked={brown}
+                                                        name="brown"
                                                         data-filter="color"
                                                     />
-                                                    Green
+                                                    Brown
                                 </label>
                                                 <label className={`dropdown-item ${this.filterClass(grey)}`}>
                                                     <input
@@ -282,17 +282,17 @@ class ProductListMen extends React.Component {
                                                     />
                                                     Grey
                                 </label>
-                                                <label className={`dropdown-item ${this.filterClass(purple)}`}>
+                                                <label className={`dropdown-item ${this.filterClass(white)}`}>
                                                     <input
                                                         className="filter-input"
                                                         type="checkbox"
                                                         value="8"
                                                         onChange={event => this.handleEvent(event)}
-                                                        checked={purple}
-                                                        name="purple"
+                                                        checked={white}
+                                                        name="white"
                                                         data-filter="color"
                                                     />
-                                                    Purple
+                                                    White
                                 </label>
                                             </div>
                                         </div>
@@ -388,8 +388,7 @@ class ProductListMen extends React.Component {
                                     </div>
                                     {productResult}
                                 </div>
-                            </section>
-                        </ReactCSSTransitionGroup>)
+                            </section></ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">

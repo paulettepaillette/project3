@@ -220,7 +220,7 @@ class ProductListWomen extends React.Component {
                                                         name="optical"
                                                         data-filter="type" />
                                                     Optical
-                                </label>
+                                                </label>
 
 
                                                 <label className={`dropdown-item ${this.filterClass(sun)}`}>

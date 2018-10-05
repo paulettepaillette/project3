@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import { Parallax } from 'react-scroll-parallax';
+
 import api from "../api"
 
 class About extends Component {
@@ -15,6 +17,7 @@ class About extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
         api.get("/about")
             .then(response => {
@@ -49,7 +52,17 @@ class About extends Component {
                                     <div className="container">
 
                                         <div className="our-misssion">
+                                            <Parallax
+                                                className="custom-class"
+                                                offsetXMax={10}
+                                                offsetXMin={-10}
+                                                offsetYMax={10}
+                                                offsetYMin={-10}
+                                                slowerScrollRate
+                                                tag="figure"
+                                                >   
                                             <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} />
+                                            </Parallax>
                                             <div className="text">
 
                                                 <h2>{oneData.acf.our_mission_title}</h2>
@@ -71,10 +84,22 @@ class About extends Component {
                                                 src={oneData.acf.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen>
                                             </iframe>
                                         </div>
+                                        <Parallax
+                                                className="custom-class"
+                                                offsetXMax={10}
+                                                offsetXMin={-10}
+                                                offsetYMax={10}
+                                                offsetYMin={-10}
+                                                slowerScrollRate
+                                                tag="figure"
+                                                > 
+                                        <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
+                                        </Parallax>
+                                    </div>
 
                                     </div>
 
-                                </div>
+
                             )}
                         </section>
                     </ReactCSSTransitionGroup>)
