@@ -133,10 +133,10 @@ class HomePage extends Component {
                                     </section>
                                     <section className="brand-section">
                                         <div className="brand-section-wrapper  container" >
-                                            <img src={oneEl.acf.brand_section_image_1.url} alt={oneEl.acf.brand_section_image_1.alt} height="40px" />
-                                            <img src={oneEl.acf.brand_section_image_2.url} alt={oneEl.acf.brand_section_image_2.alt} height="40px" />
-                                            <img src={oneEl.acf.brand_section_image_3.url} alt={oneEl.acf.brand_section_image_3.alt} height="32px" />
-                                            <img src={oneEl.acf.brand_section_image_4.url} alt={oneEl.acf.brand_section_image_4.alt} height="32px" />
+                                            <img src={oneEl.acf.brand_section_image_1.url} alt={oneEl.acf.brand_section_image_1.alt} height="30px" />
+                                            <img src={oneEl.acf.brand_section_image_2.url} alt={oneEl.acf.brand_section_image_2.alt} height="30px" />
+                                            <img src={oneEl.acf.brand_section_image_3.url} alt={oneEl.acf.brand_section_image_3.alt} height="22px" />
+                                            <img src={oneEl.acf.brand_section_image_4.url} alt={oneEl.acf.brand_section_image_4.alt} height="22px" />
                                         </div>
                                     </section>
 
@@ -172,8 +172,7 @@ class HomePage extends Component {
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">
-                                <img src="./images/loader.png" alt="loader" />
-                                <p>Loading...</p>
+                                <h1 data-text="Prism">Prism</h1>
                             </div>
                         </section>
                     )
