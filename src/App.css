@@ -55,7 +55,7 @@ h3 {
 .head-banner {
   display: flex;
   align-items: flex-end;
-  height: 600px;
+  height: 400px;
   /* background: grey; */
   margin-bottom: 70px;
 }
