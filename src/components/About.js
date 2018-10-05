@@ -47,11 +47,11 @@ class About extends Component {
                                         transitionEnter={false}
                                         transitionLeave={false}>
                                         <div className="our-misssion">
-                                            <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} height="600px" />
+                                            <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} />
                                             <div className="text">
 
                                                 <h2>{oneData.acf.our_mission_title}</h2>
-                                                <p>{oneData.acf.our_mission_text}</p>
+                                                <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_mission_text }} />
                                             </div>
                                         </div>
                                     </ReactCSSTransitionGroup>
@@ -59,9 +59,9 @@ class About extends Component {
                                     <div className="our-technology">
                                         <div className="text">
                                             <h2>{oneData.acf.our_technology_title}</h2>
-                                            <p>{oneData.acf.our_technology_text}</p>
+                                            <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
                                         </div>
-                                        <img src={oneData.acf.our_technology_image.url} height="600px" alt={oneData.acf.our_technology_image.alt} />
+                                        <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
                                     </div>
 
                                     <div className="video">

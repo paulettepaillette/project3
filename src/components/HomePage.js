@@ -56,7 +56,7 @@ class HomePage extends Component {
                                             <div className="carousel-inner">
                                                 <div className="carousel-item active">
                                                     <img className="d-block w-100" src={oneEl.acf.slider_image_1.url} alt={oneEl.acf.slider_image_1.alt} />
-                                                    <div className={`carousel-caption d-none d-md-block ${this.sliderStyle(oneEl.acf.slider_text_color)}`}>
+                                                    <div id={`${this.sliderStyle(oneEl.acf.slider_text_color_1)}`} className="carousel-caption d-none d-md-block">
                                                         <h1 dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_titre_1 }} />
                                                         <p dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_text_1 }} />
                                                         <a className="btn" href={oneEl.acf.slider_button_1.url}> {oneEl.acf.slider_button_1.title}</a>
@@ -65,7 +65,7 @@ class HomePage extends Component {
                                                 </div>
                                                 <div className="carousel-item">
                                                     <img className="d-block w-100" src={oneEl.acf.slider_image_2.url} alt={oneEl.acf.slider_image_2.alt} />
-                                                    <div className="carousel-caption d-none d-md-block">
+                                                    <div id={`${this.sliderStyle(oneEl.acf.slider_text_color_2)}`} className="carousel-caption d-none d-md-block">
                                                         <h1 dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_titre_2 }} />
                                                         <p dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_text_2 }} />
                                                         <a className="btn" href={oneEl.acf.slider_button_2.url}> {oneEl.acf.slider_button_2.title}</a>
@@ -73,7 +73,7 @@ class HomePage extends Component {
                                                 </div>
                                                 <div className="carousel-item">
                                                     <img className="d-block w-100" src={oneEl.acf.slider_image_3.url} alt={oneEl.acf.slider_image_3.alt} />
-                                                    <div className="carousel-caption d-none d-md-block">
+                                                    <div id={`${this.sliderStyle(oneEl.acf.slider_text_color_3)}`} className="carousel-caption d-none d-md-block">
                                                         <h1 dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_titre_3 }} />
                                                         <p dangerouslySetInnerHTML={{ __html: oneEl.acf.slider_text_3 }} />
                                                         <a className="btn" href={oneEl.acf.slider_button_3.url} > {oneEl.acf.slider_button_3.title}  </a>
