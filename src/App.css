@@ -481,6 +481,10 @@ form {
   justify-content: space-around;
 }
 
+.product-details .tech-section {
+  background: #F7F5F6;
+}
+
 .fa-heart{
 cursor: pointer;
 color: #BB945E;
