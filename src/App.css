@@ -383,7 +383,7 @@ padding-bottom: 50px;
 .form-section {
   display: flex;
   justify-content: space-around;
-  margin: 70px;
+  margin: 250px 70px;
 }
 
 .shop-section {
@@ -442,6 +442,10 @@ form {
   margin: auto;
 }
 
+.product-section h1 {
+  color: #323232;
+}
+
 .product-main-info {
   display: flex;
   justify-content: flex-start;
@@ -485,7 +489,9 @@ font-size: 2em;
 
 /*------------------ Product List Page ------------------*/
 
-
+.product-list-page h1 {
+  color: #323232;
+}
 
 .filter-list {
   display: flex;

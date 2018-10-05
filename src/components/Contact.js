@@ -49,7 +49,12 @@ class Contact extends Component {
         api.post("/send-email", this.state)
             .then((info) => {
                 console.log(info)
-                this.setState({ feedbackMessage: "Your message has been sent" })
+                this.setState({
+                    feedbackMessage: "Your message has been sent",
+                    fullName: "",
+                    email: "",
+                    message: "",
+                })
             })
             .catch(err =>
                 console.log("HandleSubmit pb", err)
@@ -83,7 +88,7 @@ class Contact extends Component {
 
                                         <div className="form-section">
                                             <div className="form-image">
-                                                <img src={oneData.acf.form_image.url} height="400px" alt={oneData.acf.form_image.alt} />
+                                                <img src={oneData.acf.form_image.url} alt={oneData.acf.form_image.alt} />
                                             </div>
 
 
@@ -125,7 +130,7 @@ class Contact extends Component {
                                                         onChange={event => this.updateMessage(event)}></textarea>
                                                 </div>
 
-                                                <button type="submit" className="btn btn-primary">SEND</button>
+                                                <button type="submit" className="btn">SEND</button>
                                             </form>
 
                                         </div>
@@ -147,7 +152,7 @@ class Contact extends Component {
                                         </div>
 
                                         <div className="image">
-                                            <img src={oneData.acf.shop_section_image.url} alt={oneData.acf.shop_section_image.alt} height="500px" />
+                                            <img src={oneData.acf.shop_section_image.url} alt={oneData.acf.shop_section_image.alt} height="600px" />
                                         </div>
 
                                     </div>
