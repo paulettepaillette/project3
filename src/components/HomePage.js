@@ -122,8 +122,8 @@ class HomePage extends Component {
                                                     <div>
                                                         <Parallax
                                                             className="custom-class"
-                                                            offsetYMax={10}
-                                                            offsetYMin={-10}
+                                                            offsetYMax={15}
+                                                            offsetYMin={-15}
                                                             slowerScrollRate
                                                             tag="figure"
                                                             > 
@@ -134,9 +134,9 @@ class HomePage extends Component {
                                                     </div>
                                                     <div className="image">
                                                         <Parallax
-                                                            className="custom-classe"
-                                                            offsetYMax={10}
-                                                            offsetYMin={-10}
+                                                            className="custom-class"
+                                                            offsetYMax={15}
+                                                            offsetYMin={-15}
                                                             slowerScrollRate
                                                             tag="figure"
                                                             > 
