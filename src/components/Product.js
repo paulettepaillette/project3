@@ -124,7 +124,7 @@ class Product extends React.Component {
                             <div className="product-section">
                                 <div className="product-main-info">
                                     <img src={productData.acf.product_image.url} alt="Product image" />
-                                    <div>
+                                    <div className="product-infos">
                                         <div className="text">
                                             <h1>{productData.acf.product_title}</h1>
                                             <p>{productData.acf.price} €</p>
