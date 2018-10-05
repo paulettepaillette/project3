@@ -637,3 +637,13 @@ justify-content: space-around;
   opacity: 1;
   transition: opacity 1s ease-in;
 }
+
+/* .custom-class{
+  position: relative;
+  transform: translate3d(0%, -10%, 0px);
+}
+
+.custom-classe{
+  position: relative;
+  transform: translate3d(0%, 10%, 0px);
+} */

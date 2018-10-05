@@ -54,10 +54,10 @@ class WishList extends Component {
                                 <tr key={index}>
                                     <td>
                                         <Link to={`/products/${oneProduct.id}`} key={oneProduct.id}>
-                                        <p style={{textAlign: "center"}} > {oneProduct.title.rendered}</p>
+                                        <p style={{textAlign: "center"}} > {oneProduct.acf.product_title}</p>
                                         </Link>
                                     </td>
-                                    <td style={{textAlign: "center"}} > {oneProduct.acf.price} $ </td>
+                                    <td style={{textAlign: "center"}} > {oneProduct.acf.price} € </td>
                                     <td style={{textAlign: "center"}}> <img width="100px" src={oneProduct.acf.product_image.url} alt={oneProduct.acf.product_image.alt}/> </td>
                                 </tr>
                             )

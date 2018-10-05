@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import SimpleMap from './SimpleMap';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import { Parallax } from 'react-scroll-parallax';
 
 import api from "../api.js";
 
@@ -45,7 +48,14 @@ class HomePage extends Component {
             <React.Fragment>
 
                 {isDataReceived ?
-                    (<section className="home-page">
+                    (
+                        <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={false}
+                        transitionLeave={false}>
+                    <section className="home-page">
 
                         {homeData.map((oneEl, index) => {
                             return (
@@ -109,12 +119,28 @@ class HomePage extends Component {
                                             <div className="container">
                                                 <div className="news-section-down-wrapper">
                                                     <div>
-                                                        <img src={oneEl.acf.news_section_image_1.url} alt={oneEl.acf.news_section_image_1.alt} />
+                                                        <Parallax
+                                                            className="custom-class"
+                                                            offsetYMax={10}
+                                                            offsetYMin={-10}
+                                                            slowerScrollRate
+                                                            tag="figure"
+                                                            > 
+                                                            <img src={oneEl.acf.news_section_image_1.url} alt={oneEl.acf.news_section_image_1.alt} />
                                                         <h2> {oneEl.acf.news_section_title_2} </h2>
                                                         <div className="text" dangerouslySetInnerHTML={{ __html: oneEl.acf.news_section_text_2 }} />
+                                                        </Parallax>
                                                     </div>
                                                     <div className="image">
-                                                        <img src={oneEl.acf.news_section_image_2.url} alt={oneEl.acf.news_section_image_2.alt} />
+                                                        <Parallax
+                                                            className="custom-classe"
+                                                            offsetYMax={10}
+                                                            offsetYMin={-10}
+                                                            slowerScrollRate
+                                                            tag="figure"
+                                                            > 
+                                                            <img src={oneEl.acf.news_section_image_2.url} alt={oneEl.acf.news_section_image_2.alt} />
+                                                        </Parallax>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,7 +194,8 @@ class HomePage extends Component {
                         {/*  */}
 
 
-                    </section>)
+                    </section>
+                    </ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import { Parallax } from 'react-scroll-parallax';
+
 import api from "../api"
 
 class About extends Component {
@@ -32,13 +34,15 @@ class About extends Component {
 
             <React.Fragment>
                 {isDataReceived ?
-                    (   <ReactCSSTransitionGroup
+                    (   
+                    <ReactCSSTransitionGroup
                         transitionName="example"
                         transitionAppear={true}
                         transitionAppearTimeout={500}
                         transitionEnter={false}
                         transitionLeave={false}>
-                         
+
+                   
                     <section className="about-page">
                         {aboutData.map(oneData =>
                             <div key={oneData.id} className="about-wrapper">
@@ -49,7 +53,17 @@ class About extends Component {
                                 <div className="container">
                                     
                                         <div className="our-misssion">
+                                            <Parallax
+                                                className="custom-class"
+                                                offsetXMax={10}
+                                                offsetXMin={-10}
+                                                offsetYMax={10}
+                                                offsetYMin={-10}
+                                                slowerScrollRate
+                                                tag="figure"
+                                                >   
                                             <img src={oneData.acf.our_mission_image.url} alt={oneData.acf.our_mission_image.alt} />
+                                            </Parallax>
                                             <div className="text">
 
                                                 <h2>{oneData.acf.our_mission_title}</h2>
@@ -63,7 +77,17 @@ class About extends Component {
                                             <h2>{oneData.acf.our_technology_title}</h2>
                                             <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
                                         </div>
+                                        <Parallax
+                                                className="custom-class"
+                                                offsetXMax={10}
+                                                offsetXMin={-10}
+                                                offsetYMax={10}
+                                                offsetYMin={-10}
+                                                slowerScrollRate
+                                                tag="figure"
+                                                > 
                                         <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
+                                        </Parallax>
                                     </div>
 
                                     <div className="video">
@@ -77,7 +101,9 @@ class About extends Component {
                             </div>
                         )}
                     </section>
-                    </ReactCSSTransitionGroup>)
+                    </ReactCSSTransitionGroup>
+                    )
+                    
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">
