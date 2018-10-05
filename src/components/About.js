@@ -54,8 +54,8 @@ class About extends Component {
                                         <div className="our-misssion">
                                             <Parallax
                                                 className="custom-class"
-                                                offsetXMax={10}
-                                                offsetXMin={-10}
+                                                // offsetXMax={10}
+                                                // offsetXMin={-10}
                                                 offsetYMax={10}
                                                 offsetYMin={-10}
                                                 slowerScrollRate
@@ -76,17 +76,9 @@ class About extends Component {
                                                 <h2>{oneData.acf.our_technology_title}</h2>
                                                 <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
                                             </div>
-                                            <Parallax
-                                                className="custom-class"
-                                                offsetXMax={10}
-                                                offsetXMin={-10}
-                                                offsetYMax={10}
-                                                offsetYMin={-10}
-                                                slowerScrollRate
-                                                tag="figure"
-                                                > 
+                                            
                                         <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
-                                        </Parallax>
+                                        
                                         </div>
 
                                         <div className="video">
