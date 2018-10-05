@@ -17,6 +17,7 @@ class About extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         // axios.get("http://dev.paulettepaulette.com/admin/wp-json/wp/v2/about_us")
         api.get("/about")
             .then(response => {
@@ -34,24 +35,22 @@ class About extends Component {
 
             <React.Fragment>
                 {isDataReceived ?
-                    (   
-                    <ReactCSSTransitionGroup
+                    (<ReactCSSTransitionGroup
                         transitionName="example"
                         transitionAppear={true}
                         transitionAppearTimeout={500}
                         transitionEnter={false}
                         transitionLeave={false}>
 
-                   
-                    <section className="about-page">
-                        {aboutData.map(oneData =>
-                            <div key={oneData.id} className="about-wrapper">
-                                <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})` }} className="head-banner">
-                                    <h1>{oneData.acf.head_banner_title}</h1>
-                                </div>
+                        <section className="about-page">
+                            {aboutData.map(oneData =>
+                                <div key={oneData.id} className="about-wrapper">
+                                    <div style={{ backgroundImage: `url(${oneData.acf.head_banner_image.url})` }} className="head-banner">
+                                        <h1>{oneData.acf.head_banner_title}</h1>
+                                    </div>
 
-                                <div className="container">
-                                    
+                                    <div className="container">
+
                                         <div className="our-misssion">
                                             <Parallax
                                                 className="custom-class"
@@ -70,12 +69,20 @@ class About extends Component {
                                                 <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_mission_text }} />
                                             </div>
                                         </div>
-                                   
 
-                                    <div className="our-technology">
-                                        <div className="text">
-                                            <h2>{oneData.acf.our_technology_title}</h2>
-                                            <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
+
+                                        <div className="our-technology">
+                                            <div className="text">
+                                                <h2>{oneData.acf.our_technology_title}</h2>
+                                                <div dangerouslySetInnerHTML={{ __html: oneData.acf.our_technology_text }} />
+                                            </div>
+                                            <img src={oneData.acf.our_technology_image.url} alt={oneData.acf.our_technology_image.alt} />
+                                        </div>
+
+                                        <div className="video">
+                                            <iframe width="1000" height="500"
+                                                src={oneData.acf.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen>
+                                            </iframe>
                                         </div>
                                         <Parallax
                                                 className="custom-class"
@@ -90,25 +97,16 @@ class About extends Component {
                                         </Parallax>
                                     </div>
 
-                                    <div className="video">
-                                        <iframe width="1000" height="500"
-                                            src={oneData.acf.video} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen>
-                                        </iframe>
                                     </div>
 
-                                </div>
 
-                            </div>
-                        )}
-                    </section>
-                    </ReactCSSTransitionGroup>
-                    )
-                    
+                            )}
+                        </section>
+                    </ReactCSSTransitionGroup>)
                     : (
                         <section className="loading-page">
                             <div className="container loading-box">
-                                <img src="./images/loader.png" alt="loader" />
-                                <p>Loading...</p>
+                                <h1 data-text="Prism">Prism</h1>
                             </div>
                         </section>
                     )}

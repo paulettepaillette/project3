@@ -8,7 +8,7 @@ function Navigation(props) {
     return (
         <nav>
             
-            <NavLink exact to="/">Home</NavLink>
+            {/* <NavLink exact to="/">Home</NavLink> */}
             <NavLink to="/products-women">Women</NavLink>
             <NavLink to="/products-men">Men</NavLink>
             <NavLink to="/about">About</NavLink>
