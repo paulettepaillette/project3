@@ -663,6 +663,12 @@ justify-content: space-around;
   border: 1px solid rgb(224, 224, 224);
   padding: 50px;
 }
+.wishlist-product-link {
+color: #CFA86B;
+}
+
+
+
 
 /* ------------------------- React Transitions--------------- */
 
