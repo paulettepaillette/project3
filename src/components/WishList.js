@@ -16,7 +16,9 @@ class WishList extends Component {
     componentDidMount() {
         const { currentUser } = this.props;
         const wishListArray = currentUser.wishList;
-
+        // wishListArray that come from the props contains only the Id of the products
+        // we send this array to the backend  and the response contains the json 
+        //of the matching products with all the informations that we will display
         api.put("/wish-list-products", { wishListArray })
             .then(response => {
                 // console.log("wishlistarray response:",response)
@@ -27,9 +29,6 @@ class WishList extends Component {
                 console.log(err);
                 alert("Sorry! Something went wrong. 💩");
             });
-
-
-        // 
     }
 
     render() {

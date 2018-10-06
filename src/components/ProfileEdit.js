@@ -24,27 +24,37 @@ class ProfileEdit extends Component {
         const {value } = event.target;
         this.setState({email: value})
     }
-    updatePassword(event){
-        const {value } = event.target;
-        this.setState({originalPassword: value})
-    }
+    // updatePassword(event){
+    //     const {value } = event.target;
+    //     this.setState({originalPassword: value})
+    // }
     componentDidMount() {
         // check with the backend to see if we are already logged in
-        api.get("/checklogin")
-          .then(response => {
-            // console.log("Check LOG IN 🤔", response.data);
-            this.setState({currentUser : response.data.userDoc},()=>{
-                this.setState({fullName: response.data.userDoc.fullName,
-                    email: response.data.userDoc.email,
-                    originalPassword: response.data.userDoc.originalPassword,
-                })
-            });
-          })
-          .catch(err => {
-            console.log(err);
-            alert("Sorry! There was a problem. 💩");
-          });
-      }
+        // api.get("/checklogin")
+        //   .then(response => {
+        //     // console.log("Check LOG IN 🤔", response.data);
+        //     this.setState({currentUser : response.data.userDoc},()=>{
+        //         this.setState({fullName: response.data.userDoc.fullName,
+        //             email: response.data.userDoc.email,
+        //             originalPassword: response.data.userDoc.originalPassword,
+        //         })
+        //     });
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //     alert("Sorry! There was a problem. 💩");
+        //   });
+
+
+        //we set the state of the component from props
+        const {currentUser} = this.props;
+        this.setState({currentUser : currentUser},()=>{
+                    this.setState({fullName: currentUser.fullName,
+                        email: currentUser.email,
+                        originalPassword: currentUser.originalPassword,
+                    })
+      })
+    }
 
       handleSubmit(event) {
         event.preventDefault();
@@ -57,6 +67,10 @@ class ProfileEdit extends Component {
             const {changeState} = this.props;
             changeState();
             this.setState({ isSubmitSuccess: true });
+            //when we submit the form we set the state isSubmitSuccess to true in order to redirect 
+            // to the memberspace infos once we click the edit button
+            //we call changestate() from props to change the state of the memberSpace component 
+            //in order to see the updated state directly when we redirect
             })
           
           .catch(err => {

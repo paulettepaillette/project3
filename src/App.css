@@ -58,6 +58,7 @@ h3 {
   height: 400px;
   /* background: grey; */
   margin-bottom: 70px;
+  background-size: cover;
 }
 
 .head-banner h1 {

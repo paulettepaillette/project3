@@ -2,9 +2,6 @@ import React from 'react';
 import api from "../api.js";
 import { Link, Redirect } from "react-router-dom";
 
-
-
-
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Product extends React.Component {
@@ -33,7 +30,6 @@ class Product extends React.Component {
         const { params } = this.props.match;
         api.get(`/products/${params.productId}`)
             .then(response => {
-                console.log("inside didmount", response.data)
                 this.setState({ productData: response.data, isDataReceived: true }, () => {
                     api.get("/checklogin")
                         .then(response => {
@@ -42,7 +38,11 @@ class Product extends React.Component {
                                 if (!this.state.currentUser) {
                                     return;
                                 }
-
+                                //wishList array contains ids of liked products
+                                // if the product id is in the wish list we show a filled heart (else an empty heart)
+                                // we do that using the isInwishlist from state
+                                //and if we click on the heart we add or remove the id from the wishlist array using  
+                                // addToWishlist() or removeFromWishlist() functions
                                 let wishList = this.state.currentUser.wishList;
                                 let id = this.state.productData.id;
                                 if (wishList.includes(id.toString())) {
@@ -50,7 +50,7 @@ class Product extends React.Component {
                                 }
 
                             });
-                            console.log("current user:", this.state.currentUser);
+                            // console.log("current user:", this.state.currentUser);
                         })
                         .catch(err => {
                             console.log(err);
@@ -96,13 +96,11 @@ class Product extends React.Component {
 
     render() {
         const { productData, isInWishLIst, currentUser, isDataReceived, redirection } = this.state;
-        console.log("this is it", productData);
-        console.log("is it in wish list ?", isInWishLIst)
-
-        // console.log("this is it", productData);
         const backgroundStyle = { backgroundImage: `url(${productData.acf.image_banner.url})` };
 
         if (redirection) {
+            //redirection is when a user click on the heart next to a product but is not connected
+            //redirection sends the user to signup/login page
             return (
                 <Redirect to='/account' />
             )

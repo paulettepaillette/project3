@@ -34,7 +34,8 @@ class MemberSpace extends Component {
 
     api.get("/member-space")
       .then(response => {
-        console.log("react category response", response.data)
+        //retrieving data from the back-end to display the head banner
+        // console.log("react category response", response.data)
         this.setState({ headBannerData: response.data, isDataReceived: true })
       })
       .catch(err => {
@@ -48,6 +49,8 @@ class MemberSpace extends Component {
 
   changeState() {
     api.get("/checklogin")
+    //changestate() is sent to the ProfileEdit component as props to be able to change the state of 
+    // memberspace once you click the edit button
       .then(response => {
         // console.log("Check LOG IN from changestate🤔", response.data);
         this.setState({ currentUser: response.data.userDoc }, () => {
